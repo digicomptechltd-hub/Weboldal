@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Act Readiness &amp; Governance | Digital Compliance Technology</title>
+  <meta name="description" content="Enterprise AI Act readiness and governance decision-support for executives. EU AI Act (2024/1689) compliance routing, PreCheck, and management documentation. Digital Compliance Technology.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Act Readiness &amp; Governance | Digital Compliance Technology">
+  <meta property="og:description" content="Management decision-support for EU AI Act (2024/1689) compliance readiness. Structured intake, Annex III pre-screening, and defensible documentation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Act Readiness & Governance for Executive Decision-Making",
+    "description": "Reference-grade knowledge page on EU AI Act (2024/1689) compliance, AI governance, High-Risk AI, Annex III, and AI Act decision support for executive teams.",
+    "publisher": { "@type": "Organization", "name": "Digital Compliance Technology" },
+    "about": [
+      {"@type": "Thing", "name": "EU AI Act"},
+      {"@type": "Thing", "name": "AI Compliance"},
+      {"@type": "Thing", "name": "AI Governance"},
+      {"@type": "Thing", "name": "High-Risk AI"},
+      {"@type": "Thing", "name": "Annex III AI Act"},
+      {"@type": "Thing", "name": "AI Transparency Article 50"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is AI Compliance?",
+        "acceptedAnswer": { "@type": "Answer", "text": "AI compliance refers to the structured alignment of AI system usage with applicable legal, regulatory and governance requirements, including the EU AI Act and GDPR. It focuses on documented, proportional and traceable decisions rather than certification." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is AI Governance?",
+        "acceptedAnswer": { "@type": "Answer", "text": "AI governance defines how AI systems are designed, deployed, monitored and reviewed, including roles, responsibilities and escalation paths." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the EU AI Act (2024/1689)?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The EU AI Act establishes a risk-based regulatory framework for AI systems with progressive enforcement between 2025 and 2026." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Annex III of the EU AI Act?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Annex III lists AI use cases that may qualify as High-Risk AI depending on purpose and context." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is High-Risk AI (HRAI)?",
+        "acceptedAnswer": { "@type": "Answer", "text": "High-Risk AI refers to AI systems subject to enhanced governance obligations under the EU AI Act (2024/1689)." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is AI Act Decision Support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "AI Act decision support helps executives determine which obligations apply and when escalation is necessary." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ─── Custom Properties ─── */
+    :root {
+      --bg:           #0D1B2A;
+      --bg-alt:       #091422;
+      --card:         #112236;
+      --card-hover:   #15294A;
+      --accent:       #2563EB;
+      --accent-hover: #1D4ED8;
+      --teal:         #10B981;
+      --teal-dim:     rgba(16,185,129,.12);
+      --danger:       #F87171;
+      --danger-dim:   rgba(248,113,113,.10);
+      --text:         #F8FAFC;
+      --text-muted:   #94A3B8;
+      --text-dim:     #64748B;
+      --border:       rgba(255,255,255,.07);
+      --border-acc:   rgba(37,99,235,.30);
+      --radius:       12px;
+      --radius-sm:    8px;
+      --font:         'Inter', system-ui, -apple-system, sans-serif;
+      --max-w:        1160px;
+    }
+
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+    /* ─── Language visibility ─── */
+    html[data-lang="en"] .lang-de,
+    html[data-lang="en"] .lang-hu,
+    html[data-lang="de"] .lang-en,
+    html[data-lang="de"] .lang-hu,
+    html[data-lang="hu"] .lang-en,
+    html[data-lang="hu"] .lang-de { display: none !important; }
+
+    /* ─── Layout ─── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    section { padding: 88px 0; }
+
+    /* ─── Typography ─── */
+    h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 700; line-height: 1.14; letter-spacing: -.025em; }
+    h2 { font-size: clamp(1.4rem, 2.8vw, 2rem); font-weight: 600; line-height: 1.25; letter-spacing: -.015em; }
+    h3 { font-size: 1.0625rem; font-weight: 600; line-height: 1.35; }
+    p  { color: var(--text-muted); }
+    a  { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: #60A5FA; text-decoration: underline; }
+    strong { color: var(--text); font-weight: 600; }
+    blockquote { font-style: italic; }
+
+    /* ─── Section header ─── */
+    .section-label {
+      display: inline-block;
+      font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 12px;
+    }
+    .section-title { margin-bottom: 14px; }
+    .section-desc  { font-size: 1.0625rem; color: var(--text-muted); max-width: 640px; }
+    .section-header { margin-bottom: 52px; }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font); font-size: .9375rem; font-weight: 600;
+      padding: 13px 26px; border-radius: 10px; border: none; cursor: pointer;
+      text-decoration: none; transition: background .2s, transform .15s, box-shadow .2s, border-color .2s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); color: #fff; text-decoration: none; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,99,235,.28); }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.04); color: var(--text); text-decoration: none; }
+
+    /* ══════════════════════════════════════════════════ BANNERS */
+    .lang-banners { width: 100%; line-height: 0; }
+    .lang-banner  { width: 100%; height: auto; display: block; }
+
+    /* ══════════════════════════════════════════════════ HEADER */
+    header {
+      position: sticky; top: 0; z-index: 100; height: 64px;
+      background: rgba(13,27,42,.93); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .logo {
+      font-size: .9375rem; font-weight: 700; color: var(--text); letter-spacing: -.01em;
+      text-decoration: none; display: flex; align-items: center; gap: 10px;
+    }
+    .logo:hover { color: var(--text); text-decoration: none; }
+    .logo-badge {
+      background: var(--accent); color: #fff; font-size: .625rem; font-weight: 700;
+      padding: 3px 7px; border-radius: 4px; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .lang-switcher {
+      display: flex; align-items: center; gap: 2px;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      border-radius: 8px; padding: 3px;
+    }
+    .lang-btn {
+      background: none; border: none; color: var(--text-muted);
+      font-family: var(--font); font-size: .78rem; font-weight: 600;
+      padding: 5px 11px; border-radius: 6px; cursor: pointer; transition: all .2s; letter-spacing: .04em;
+    }
+    .lang-btn:hover { color: var(--text); background: rgba(255,255,255,.07); }
+    .lang-btn.active { background: var(--accent); color: #fff; }
+
+    /* ══════════════════════════════════════════════════ HERO */
+    #hero {
+      padding: 104px 0 96px; position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(37,99,235,.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(37,99,235,.04) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+    #hero::after {
+      content: ''; position: absolute; top: -180px; left: 40%; transform: translateX(-50%);
+      width: 900px; height: 640px; pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(37,99,235,.11) 0%, transparent 68%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 840px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: .8125rem; font-weight: 500; color: var(--text-muted);
+      border: 1px solid var(--border); border-radius: 24px; padding: 6px 15px;
+      margin-bottom: 28px; background: rgba(255,255,255,.03);
+    }
+    .hero-dot { width: 7px; height: 7px; background: var(--teal); border-radius: 50%; flex-shrink: 0; animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.75)} }
+    .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    #hero h1 { margin-bottom: 22px; }
+    .hero-sub { font-size: 1.125rem; color: var(--text-muted); max-width: 520px; margin-bottom: 40px; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-visual {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 4/3; flex-shrink: 0;
+      box-shadow: 0 24px 64px rgba(0,0,0,.5), 0 0 0 1px var(--border);
+    }
+    .hero-visual-img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center 55%; display: block;
+      filter: brightness(0.6) saturate(0.75);
+    }
+    .hero-visual-overlay {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(135deg, rgba(37,99,235,.18) 0%, rgba(13,27,42,.25) 100%);
+    }
+    .hero-visual-badge {
+      position: absolute; bottom: 20px; left: 20px;
+      background: rgba(13,27,42,.82); backdrop-filter: blur(8px);
+      border: 1px solid var(--border-acc); border-radius: 8px;
+      padding: 8px 14px; font-size: .75rem; font-weight: 600;
+      color: #93C5FD; letter-spacing: .02em;
+    }
+    @media (max-width: 820px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+    }
+
+    /* ══════════════════════════════════════════════════ BOARDROOM */
+    #boardroom { background: var(--bg-alt); }
+    .boardroom-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 40px 48px; max-width: 860px;
+    }
+    .bl { list-style: none; display: flex; flex-direction: column; gap: 15px; margin-top: 24px; }
+    .bl li { display: flex; align-items: flex-start; gap: 14px; font-size: 1rem; color: var(--text-muted); }
+    .bl li::before {
+      content: ''; flex-shrink: 0; width: 18px; height: 18px; margin-top: 4px;
+      border-radius: 50%; background: var(--teal-dim); border: 1.5px solid var(--teal);
+    }
+    .bl li strong { color: var(--text); }
+
+    /* ══════════════════════════════════════════════════ WHAT IS / NOT */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .check-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px;
+    }
+    .check-card.is-card  { border-top: 2px solid var(--teal); }
+    .check-card.not-card { border-top: 2px solid var(--danger); }
+    .check-card-title {
+      font-size: 1rem; font-weight: 700; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 9px;
+    }
+    .is-card  .check-card-title { color: var(--teal); }
+    .not-card .check-card-title { color: var(--danger); }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: .9375rem; color: var(--text-muted); }
+    .ci { flex-shrink: 0; line-height: 1.55; font-size: .9rem; }
+
+    /* ══════════════════════════════════════════════════ HOW IT WORKS */
+    #how-it-works { background: var(--bg-alt); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .step-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 28px 22px; transition: border-color .2s, background .2s;
+    }
+    .step-card:hover { border-color: var(--border-acc); background: var(--card-hover); }
+    .step-num { font-size: 2rem; font-weight: 800; color: rgba(37,99,235,.22); line-height: 1; margin-bottom: 16px; }
+    .step-card h3 { margin-bottom: 8px; font-size: .9375rem; }
+    .step-card p  { font-size: .875rem; }
+
+    /* ══════════════════════════════════════════════════ PRECHECK */
+    #precheck {
+      background: linear-gradient(150deg, #0f2444 0%, #0D1B2A 100%);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .precheck-inner { max-width: 700px; margin: 0 auto; }
+    #precheck h2 { margin-bottom: 12px; }
+    #precheck .section-desc { margin: 0 auto 40px; }
+    .precheck-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-precheck {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 5px;
+      background: var(--card); border: 1.5px solid var(--border); border-radius: var(--radius);
+      padding: 20px 36px; color: var(--text); font-family: var(--font);
+      cursor: pointer; text-decoration: none; transition: all .2s; min-width: 164px;
+    }
+    .btn-precheck:hover { border-color: rgba(37,99,235,.5); background: var(--card-hover); color: var(--text); text-decoration: none; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.3); }
+    .btn-precheck.active { border-color: var(--accent); background: rgba(37,99,235,.10); }
+    .btn-precheck-flag { font-size: 1.625rem; line-height: 1; }
+    .btn-precheck-lang { font-size: .875rem; font-weight: 700; letter-spacing: .05em; }
+    .btn-precheck-sub  { font-size: .75rem; color: var(--text-dim); }
+    .precheck-note { margin-top: 24px; font-size: .8125rem; color: var(--text-dim); }
+
+    /* ══════════════════════════════════════════════════ EU CONTEXT */
+    .eu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .eu-text p { margin-bottom: 16px; font-size: .9375rem; }
+    .timeline { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .timeline-head { padding: 15px 22px; font-size: .75rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .timeline-row { display: flex; gap: 16px; padding: 15px 22px; border-bottom: 1px solid var(--border); }
+    .timeline-row:last-child { border-bottom: none; }
+    .tl-date { flex-shrink: 0; font-size: .8125rem; font-weight: 600; color: var(--accent); min-width: 88px; }
+    .tl-desc { font-size: .875rem; color: var(--text-muted); }
+    .eu-ref {
+      margin-top: 22px; padding: 15px 18px; font-size: .875rem;
+      background: rgba(37,99,235,.06); border: 1px solid var(--border-acc); border-radius: var(--radius-sm);
+    }
+    .eu-ref a { font-weight: 600; }
+
+    /* ══════════════════════════════════════════════════ DEFINITIONS */
+    #definitions { background: var(--bg-alt); }
+    .def-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    article.def-card {
+      background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+      border-radius: var(--radius); padding: 28px 28px 24px; transition: border-left-color .2s;
+    }
+    article.def-card:hover { border-left-color: var(--teal); }
+    article.def-card h3 { margin-bottom: 12px; font-size: 1rem; }
+    article.def-card p  { font-size: .9rem; line-height: 1.72; }
+
+    /* ══════════════════════════════════════════════════ FUTURE-PROOF */
+    #future-proof { text-align: center; background: linear-gradient(180deg, var(--bg) 0%, #091422 100%); }
+    .future-inner { max-width: 720px; margin: 0 auto; }
+    .future-quotes { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+    .future-quote {
+      font-size: 1.0625rem; color: var(--text-muted); padding: 20px 32px;
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    }
+
+    /* ══════════════════════════════════════════════════ TRUST */
+    .trust-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .trust-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; text-align: center; }
+    .trust-icon { width: 44px; height: 44px; background: var(--teal-dim); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--teal); }
+    .trust-card h3 { font-size: .9375rem; margin-bottom: 8px; }
+    .trust-card p  { font-size: .875rem; }
+
+    /* ══════════════════════════════════════════════════ FOOTER */
+    footer { background: var(--bg-alt); border-top: 1px solid var(--border); padding: 52px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-brand p { font-size: .875rem; margin-top: 10px; max-width: 320px; }
+    .footer-legal h4 { font-size: .75rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .footer-legal a { display: block; font-size: .875rem; margin-bottom: 8px; }
+    .footer-notice {
+      padding: 16px 20px; font-size: .8125rem; color: var(--text-dim);
+      background: rgba(255,255,255,.025); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      margin-bottom: 32px; line-height: 1.7;
+    }
+    .footer-notice strong { color: var(--text-muted); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: .8125rem; }
+    .footer-disclaimer { font-size: .75rem; color: var(--text-dim); text-align: right; }
+
+    /* ══════════════════════════════════════════════════ IMAGE STRIPS */
+    .img-strip {
+      position: relative; overflow: hidden;
+      height: 300px; display: block;
+    }
+    .img-strip-photo {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      filter: brightness(0.45) saturate(0.65);
+      transition: transform 6s ease;
+    }
+    .img-strip:hover .img-strip-photo { transform: scale(1.03); }
+    .img-strip-overlay {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        linear-gradient(to right,  var(--bg) 0%, transparent 18%, transparent 82%, var(--bg) 100%),
+        linear-gradient(to bottom, var(--bg) 0%, transparent 20%, transparent 80%, var(--bg) 100%);
+    }
+    .img-strip-caption {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      text-align: center; pointer-events: none; white-space: nowrap;
+    }
+    .img-strip-caption span {
+      font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+    }
+    @media (max-width: 620px) { .img-strip { height: 180px; } }
+
+    /* ══════════════════════════════════════════════════ RESPONSIVE */
+    @media (max-width: 960px) {
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .eu-grid    { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      section { padding: 60px 0; }
+      #hero   { padding: 68px 0 60px; }
+      .two-col    { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .def-grid   { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .boardroom-card { padding: 28px 22px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .footer-disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════ HEADER -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <!-- LOGO PLACEHOLDER: replace the text below with an <img> tag when logo asset is available -->
+      <a href="#" class="logo" aria-label="Digital Compliance Technology – Home">
+        Digital Compliance Technology
+        <span class="logo-badge lang-en">AI Act</span>
+        <span class="logo-badge lang-de">KI-Verordnung</span>
+        <span class="logo-badge lang-hu">AI Act</span>
+      </a>
+
+      <nav class="lang-switcher" aria-label="Language selector">
+        <button class="lang-btn active" data-lang="en" onclick="switchLang('en')" aria-label="Switch to English">EN</button>
+        <button class="lang-btn"        data-lang="de" onclick="switchLang('de')" aria-label="Auf Deutsch wechseln">DE</button>
+        <button class="lang-btn"        data-lang="hu" onclick="switchLang('hu')" aria-label="Váltás magyarra">HU</button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- LANGUAGE BANNERS -->
+<div class="lang-banners">
+  <img src="banner-en.jpg" class="lang-banner lang-en" alt="PreCheck – AI System Classification · EU AI Act 2024/1689">
+  <img src="banner-de.jpg" class="lang-banner lang-de" alt="PreCheck – KI-System Klassifizierung · EU-KI-Verordnung 2024/1689">
+  <img src="banner-hu.jpg" class="lang-banner lang-hu" alt="PreCheck – AI-rendszer besorolás · EU AI Act 2024/1689">
+</div>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════ HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-layout">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-dot" aria-hidden="true"></span>
+        <span class="lang-en">EU AI Act (Regulation (EU) 2024/1689) · Enforcement 2025–2026</span>
+        <span class="lang-de">EU-KI-Verordnung (EU) 2024/1689 · Durchsetzung 2025–2026</span>
+        <span class="lang-hu">EU AI Act ((EU) 2024/1689 rendelet) · Végrehajtás 2025–2026</span>
+      </div>
+
+      <h1>
+        <span class="lang-en">AI Act Readiness &amp; Governance for Executive Decision-Making</span>
+        <span class="lang-de">KI-Bereitschaft &amp; Governance für Führungsentscheidungen</span>
+        <span class="lang-hu">AI Act felkészültség &amp; döntéstámogatás vezető döntéshozóknak</span>
+      </h1>
+
+      <p class="hero-sub">
+        <span class="lang-en">Structured management decision-support for EU AI Act scope, classification, and defensible compliance documentation.</span>
+        <span class="lang-de">Strukturierte Managementunterstützung für Anwendungsbereich, Klassifizierung und dokumentierte Compliance gemäß EU-KI-Verordnung.</span>
+        <span class="lang-hu">Strukturált vezetői döntéstámogatás az EU AI Act hatályához, osztályozáshoz és igazolható compliance dokumentációhoz.</span>
+      </p>
+
+      <div class="hero-cta">
+        <a href="#precheck" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="lang-en">Start AI Act PreCheck</span>
+          <span class="lang-de">KI-Act-PreCheck starten</span>
+          <span class="lang-hu">AI Act PreCheck indítása</span>
+        </a>
+        <a href="#definitions" class="btn btn-ghost">
+          <span class="lang-en">Reference Definitions</span>
+          <span class="lang-de">Referenz-Definitionen</span>
+          <span class="lang-hu">Referencia-definíciók</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="img-eu-flags.jpg" class="hero-visual-img" alt="EU flags in front of Brussels building — EU AI Act regulatory context">
+      <div class="hero-visual-overlay"></div>
+      <div class="hero-visual-badge">Regulation (EU) 2024/1689</div>
+    </div>
+
+    </div><!-- /hero-layout -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ BOARDROOM -->
+<section id="boardroom">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">
+        <span class="lang-en">60-Second Brief</span>
+        <span class="lang-de">60-Sekunden-Überblick</span>
+        <span class="lang-hu">60 másodperces összefoglaló</span>
+      </span>
+      <h2 class="section-title">
+        <span class="lang-en">Executive Summary — AI Act Decision-Support in 60 Seconds</span>
+        <span class="lang-de">Führungskräfte-Zusammenfassung — KI-Act-Entscheidungsunterstützung in 60 Sekunden</span>
+        <span class="lang-hu">Vezetői összefoglaló — AI Act döntéstámogatás 60 másodpercben</span>
+      </h2>
+    </div>
+
+    <div class="boardroom-card">
+      <ul class="bl">
+        <li class="lang-en"><span>The <strong>EU AI Act</strong> applies a risk-based classification to AI systems in the EU market — not all AI systems are subject to the same obligations.</span></li>
+        <li class="lang-en"><span>Not every AI system qualifies as <strong>High-Risk</strong> — classification depends on the system's purpose, context, and deployment conditions, not its technology alone.</span></li>
+        <li class="lang-en"><span><strong>Proportional, documented decision-making</strong> reduces exposure and demonstrates due diligence without over-engineering compliance.</span></li>
+        <li class="lang-en"><span>This tool <strong>clarifies scope</strong>, supports regulatory routing, and produces defensible management documentation at the appropriate level.</span></li>
+
+        <li class="lang-de"><span>Die <strong>EU-KI-Verordnung</strong> wendet eine risikobasierte Klassifizierung auf KI-Systeme im EU-Markt an — nicht alle Systeme unterliegen denselben Pflichten.</span></li>
+        <li class="lang-de"><span>Nicht jedes KI-System gilt als <strong>Hochrisiko</strong> — die Einstufung hängt von Zweck, Kontext und Einsatzbedingungen ab, nicht allein von der Technologie.</span></li>
+        <li class="lang-de"><span><strong>Proportionale, dokumentierte Entscheidungsfindung</strong> reduziert Risiken und demonstriert Sorgfalt, ohne übermäßigen Compliance-Aufwand.</span></li>
+        <li class="lang-de"><span>Dieses Tool <strong>klärt den Anwendungsbereich</strong>, unterstützt das regulatorische Routing und erstellt verteidigbare Managementdokumentation.</span></li>
+
+        <li class="lang-hu"><span>Az <strong>EU AI Act</strong> kockázatalapú osztályozást alkalmaz az EU piacon működő AI rendszerekre — nem minden rendszerre vonatkoznak ugyanazok a kötelezettségek.</span></li>
+        <li class="lang-hu"><span>Nem minden AI rendszer minősül <strong>magas kockázatúnak</strong> — a besorolás a rendszer céljától, kontextusától és alkalmazási körülményeitől függ.</span></li>
+        <li class="lang-hu"><span>Az <strong>arányos, dokumentált döntéshozatal</strong> csökkenti a kitettséget és bizonyítja a kellő gondosságot, anélkül hogy túlbonyolítaná a megfelelést.</span></li>
+        <li class="lang-hu"><span>Ez az eszköz <strong>tisztázza a hatályt</strong>, támogatja a szabályozási útvonal meghatározását, és igazolható vezetői dokumentációt állít elő.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ WHAT IS / IS NOT -->
+<section id="what-is">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="lang-en">What This Is — and What It Is Not</span>
+        <span class="lang-de">Was dieses Tool ist — und was es nicht ist</span>
+        <span class="lang-hu">Mi ez — és mi nem ez</span>
+      </h2>
+    </div>
+
+    <div class="two-col">
+      <div class="check-card is-card">
+        <div class="check-card-title">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor" fill-opacity=".15"/><path d="M5 9l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="lang-en">This IS</span>
+          <span class="lang-de">Das IST es</span>
+          <span class="lang-hu">Ez IGEN</span>
+        </div>
+        <ul class="check-list">
+          <li class="lang-en"><span class="ci" style="color:var(--teal)">✓</span><span>Management decision-support for AI Act scope and classification</span></li>
+          <li class="lang-en"><span class="ci" style="color:var(--teal)">✓</span><span>AI Act readiness &amp; regulatory routing engine</span></li>
+          <li class="lang-en"><span class="ci" style="color:var(--teal)">✓</span><span>Defensible minimum baseline for proportional compliance</span></li>
+          <li class="lang-en"><span class="ci" style="color:var(--teal)">✓</span><span>Structured entry point to Transparency, PreCheck, and HRAI assessment</span></li>
+
+          <li class="lang-de"><span class="ci" style="color:var(--teal)">✓</span><span>Managementunterstützung für Anwendungsbereich und Klassifizierung</span></li>
+          <li class="lang-de"><span class="ci" style="color:var(--teal)">✓</span><span>KI-Act-Bereitschaft &amp; regulatorisches Routing-System</span></li>
+          <li class="lang-de"><span class="ci" style="color:var(--teal)">✓</span><span>Verteidigbare Mindestgrundlage für proportionale Compliance</span></li>
+          <li class="lang-de"><span class="ci" style="color:var(--teal)">✓</span><span>Strukturierter Einstieg in Transparenz, PreCheck und HRAI-Bewertung</span></li>
+
+          <li class="lang-hu"><span class="ci" style="color:var(--teal)">✓</span><span>Vezetői döntéstámogatás az AI Act hatályához és osztályozáshoz</span></li>
+          <li class="lang-hu"><span class="ci" style="color:var(--teal)">✓</span><span>AI Act felkészültség &amp; szabályozási útválasztó rendszer</span></li>
+          <li class="lang-hu"><span class="ci" style="color:var(--teal)">✓</span><span>Igazolható minimális alapszint arányos megfeleléshez</span></li>
+          <li class="lang-hu"><span class="ci" style="color:var(--teal)">✓</span><span>Strukturált belépési pont a Transparencia, PreCheck és HRAI értékeléshez</span></li>
+        </ul>
+      </div>
+
+      <div class="check-card not-card">
+        <div class="check-card-title">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor" fill-opacity=".15"/><path d="M6 6l6 6M12 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="lang-en">This is NOT</span>
+          <span class="lang-de">Das ist es NICHT</span>
+          <span class="lang-hu">Ez NEM</span>
+        </div>
+        <ul class="check-list">
+          <li class="lang-en"><span class="ci" style="color:var(--danger)">✕</span><span>Legal advice or legal interpretation</span></li>
+          <li class="lang-en"><span class="ci" style="color:var(--danger)">✕</span><span>AI Act certification or accreditation</span></li>
+          <li class="lang-en"><span class="ci" style="color:var(--danger)">✕</span><span>A formal compliance audit</span></li>
+          <li class="lang-en"><span class="ci" style="color:var(--danger)">✕</span><span>A guarantee of regulatory compliance</span></li>
+
+          <li class="lang-de"><span class="ci" style="color:var(--danger)">✕</span><span>Rechtsberatung oder Rechtsauslegung</span></li>
+          <li class="lang-de"><span class="ci" style="color:var(--danger)">✕</span><span>KI-Act-Zertifizierung oder Akkreditierung</span></li>
+          <li class="lang-de"><span class="ci" style="color:var(--danger)">✕</span><span>Ein formales Compliance-Audit</span></li>
+          <li class="lang-de"><span class="ci" style="color:var(--danger)">✕</span><span>Eine Garantie für regulatorische Compliance</span></li>
+
+          <li class="lang-hu"><span class="ci" style="color:var(--danger)">✕</span><span>Jogi tanácsadás vagy jogi értelmezés</span></li>
+          <li class="lang-hu"><span class="ci" style="color:var(--danger)">✕</span><span>AI Act tanúsítás vagy akkreditáció</span></li>
+          <li class="lang-hu"><span class="ci" style="color:var(--danger)">✕</span><span>Formális compliance audit</span></li>
+          <li class="lang-hu"><span class="ci" style="color:var(--danger)">✕</span><span>Szabályozási megfelelés garantálása</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">
+        <span class="lang-en">Process</span>
+        <span class="lang-de">Prozess</span>
+        <span class="lang-hu">Folyamat</span>
+      </span>
+      <h2 class="section-title">
+        <span class="lang-en">How It Works</span>
+        <span class="lang-de">So funktioniert es</span>
+        <span class="lang-hu">Hogyan működik</span>
+      </h2>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>
+          <span class="lang-en">12-Question AI Act Intake</span>
+          <span class="lang-de">12-Fragen-KI-Act-Aufnahme</span>
+          <span class="lang-hu">12 kérdéses AI Act bevitel</span>
+        </h3>
+        <p>
+          <span class="lang-en">Structured intake covering AI system purpose, deployment context, and affected domains.</span>
+          <span class="lang-de">Strukturierter Fragebogen zu Systemzweck, Einsatzkontext und betroffenen Bereichen.</span>
+          <span class="lang-hu">Strukturált kérdőív az AI rendszer céljáról, alkalmazási kontextusáról és érintett területekről.</span>
+        </p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>
+          <span class="lang-en">Automated PreCheck &amp; Annex III Pre-Screen</span>
+          <span class="lang-de">Automatisierter PreCheck &amp; Anhang III Vorprüfung</span>
+          <span class="lang-hu">Automatizált PreCheck &amp; Annex III előszűrés</span>
+        </h3>
+        <p>
+          <span class="lang-en">Automated classification routing against Annex III use-case categories and risk-tier criteria.</span>
+          <span class="lang-de">Automatisiertes Klassifizierungs-Routing anhand der Anhang III-Anwendungsfallkategorien.</span>
+          <span class="lang-hu">Automatizált osztályozási útválasztás az Annex III felhasználási kategóriáival és kockázati szintekkel szemben.</span>
+        </p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>
+          <span class="lang-en">Management Decision-Support PDF</span>
+          <span class="lang-de">Management-Entscheidungs-PDF</span>
+          <span class="lang-hu">Vezetői döntéstámogató PDF</span>
+        </h3>
+        <p>
+          <span class="lang-en">Structured document summarising classification rationale, applicable obligations, and recommended next steps.</span>
+          <span class="lang-de">Strukturiertes Dokument mit Klassifizierungsbegründung, Pflichten und empfohlenen nächsten Schritten.</span>
+          <span class="lang-hu">Strukturált dokumentum az osztályozási indoklással, alkalmazandó kötelezettségekkel és javasolt lépésekkel.</span>
+        </p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>
+          <span class="lang-en">Actionable Roadmap &amp; Evidence Pack</span>
+          <span class="lang-de">Aktionsplan &amp; Beweispaket</span>
+          <span class="lang-hu">Cselekvési terv &amp; bizonyítékcsomag</span>
+        </h3>
+        <p>
+          <span class="lang-en">Prioritised compliance roadmap and documentation package for internal governance records.</span>
+          <span class="lang-de">Priorisierter Compliance-Fahrplan und Dokumentationspaket für interne Governance-Aufzeichnungen.</span>
+          <span class="lang-hu">Priorizált compliance ütemterv és dokumentációs csomag belső governance nyilvántartáshoz.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ PRECHECK CTA -->
+<section id="precheck">
+  <div class="container">
+    <div class="precheck-inner">
+      <span class="section-label">
+        <span class="lang-en">Get Started</span>
+        <span class="lang-de">Jetzt starten</span>
+        <span class="lang-hu">Kezdjen hozzá</span>
+      </span>
+      <h2>
+        <span class="lang-en">Start Your AI Act PreCheck</span>
+        <span class="lang-de">KI-Act-PreCheck starten</span>
+        <span class="lang-hu">Indítsa el az AI Act PreCheck-et</span>
+      </h2>
+      <p class="section-desc">
+        <span class="lang-en">Select your preferred language to begin the structured 12-question AI Act intake. Opens in a new tab.</span>
+        <span class="lang-de">Wählen Sie Ihre Sprache, um mit dem strukturierten KI-Act-Intake zu beginnen. Öffnet in einem neuen Tab.</span>
+        <span class="lang-hu">Válassza ki preferált nyelvét a strukturált AI Act bevitel megkezdéséhez. Új lapon nyílik meg.</span>
+      </p>
+
+      <div class="precheck-buttons">
+        <a href="https://airtable.com/appXjjPrAfvyGqddh/shrbgGYcyiWuQ1r8x?prefill_requested_language=en"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-precheck" data-precheck-lang="en">
+          <span class="btn-precheck-flag">🇬🇧</span>
+          <span class="btn-precheck-lang">EN</span>
+          <span class="btn-precheck-sub lang-en">Start in English</span>
+          <span class="btn-precheck-sub lang-de">Auf Englisch</span>
+          <span class="btn-precheck-sub lang-hu">Angolul</span>
+        </a>
+        <a href="https://airtable.com/appXjjPrAfvyGqddh/shr2Tf6IvbtZRazTL?prefill_requested_language=de"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-precheck" data-precheck-lang="de">
+          <span class="btn-precheck-flag">🇩🇪</span>
+          <span class="btn-precheck-lang">DE</span>
+          <span class="btn-precheck-sub lang-en">Start in German</span>
+          <span class="btn-precheck-sub lang-de">Auf Deutsch</span>
+          <span class="btn-precheck-sub lang-hu">Németül</span>
+        </a>
+        <a href="https://airtable.com/appXjjPrAfvyGqddh/shr1rOwad4u4epAcN?prefill_requested_language=hu"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-precheck" data-precheck-lang="hu">
+          <span class="btn-precheck-flag">🇭🇺</span>
+          <span class="btn-precheck-lang">HU</span>
+          <span class="btn-precheck-sub lang-en">Start in Hungarian</span>
+          <span class="btn-precheck-sub lang-de">Auf Ungarisch</span>
+          <span class="btn-precheck-sub lang-hu">Magyarul</span>
+        </a>
+      </div>
+
+      <p class="precheck-note">
+        <span class="lang-en">No registration required to begin. No legal advice is provided.</span>
+        <span class="lang-de">Keine Registrierung erforderlich. Es wird keine Rechtsberatung geleistet.</span>
+        <span class="lang-hu">A kezdéshez nincs szükség regisztrációra. Jogi tanácsadás nem történik.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ EU CONTEXT -->
+<section id="eu-context">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">
+        <span class="lang-en">Regulatory Reference</span>
+        <span class="lang-de">Regulatorische Referenz</span>
+        <span class="lang-hu">Szabályozási hivatkozás</span>
+      </span>
+      <h2 class="section-title">
+        <span class="lang-en">EU AI Act Context &amp; Official References</span>
+        <span class="lang-de">EU-KI-Verordnung: Kontext &amp; offizielle Quellen</span>
+        <span class="lang-hu">EU AI Act kontextus &amp; hivatalos hivatkozások</span>
+      </h2>
+    </div>
+
+    <div class="eu-grid">
+      <div class="eu-text">
+        <div class="lang-en">
+          <p>Regulation (EU) 2024/1689 — the EU AI Act — establishes a tiered, risk-based regulatory framework for AI systems placed on or put into service in the EU market. It distinguishes between prohibited AI practices, high-risk AI systems, general purpose AI (GPAI) models, and lower-risk applications.</p>
+          <p>AI transparency obligations under <strong>Article 50</strong> apply to certain AI systems regardless of risk classification, covering disclosure requirements in human-facing interactions.</p>
+          <p>Administrative fines may reach up to <strong>€35 million or 7% of global annual turnover</strong>, depending on the nature and severity of the violation. These thresholds are subject to supervisory authority discretion and proportionality assessment.</p>
+          <div class="eu-ref">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:7px" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">Official EU AI Act regulation (EUR-Lex) — Regulation (EU) 2024/1689</a>
+          </div>
+        </div>
+        <div class="lang-de">
+          <p>Die Verordnung (EU) 2024/1689 — die EU-KI-Verordnung — schafft einen abgestuften, risikobasierten Rechtsrahmen für KI-Systeme, die auf dem EU-Markt in Verkehr gebracht oder in Betrieb genommen werden. Sie unterscheidet verbotene KI-Praktiken, Hochrisiko-KI-Systeme, KI-Modelle mit allgemeinem Verwendungszweck (GPAI) und Anwendungen mit geringerem Risiko.</p>
+          <p>Transparenzpflichten gemäß <strong>Artikel 50</strong> gelten für bestimmte KI-Systeme unabhängig von der Risikoeinstufung und umfassen Offenlegungspflichten bei Interaktionen mit Personen.</p>
+          <p>Verwaltungsstrafen können bis zu <strong>35 Millionen Euro oder 7 % des weltweiten Jahresumsatzes</strong> betragen. Diese Schwellenwerte unterliegen dem Ermessen der Aufsichtsbehörde und einer Verhältnismäßigkeitsprüfung.</p>
+          <div class="eu-ref">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:7px" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">Offizielle EU-KI-Verordnung (EUR-Lex) — Verordnung (EU) 2024/1689</a>
+          </div>
+        </div>
+        <div class="lang-hu">
+          <p>Az (EU) 2024/1689 rendelet — az EU AI Act — többszintű, kockázatalapú szabályozási keretet hoz létre az EU piacon forgalomba hozott vagy üzembe helyezett AI rendszerek számára. Megkülönbözteti a tiltott AI gyakorlatokat, a magas kockázatú AI rendszereket, az általános célú AI (GPAI) modelleket és az alacsonyabb kockázatú alkalmazásokat.</p>
+          <p>Az <strong>50. cikk</strong> szerinti AI átláthatósági kötelezettségek bizonyos AI rendszerekre kockázati besorolástól függetlenül érvényesek, lefedve a személyekkel folytatott interakciókra vonatkozó közzétételi követelményeket.</p>
+          <p>A közigazgatási bírságok elérheti a <strong>35 millió eurót vagy a globális éves forgalom 7%-át</strong>, a jogsértés jellegétől és súlyosságától függően. E küszöbértékek a felügyeleti hatóság mérlegelési jogköre és arányossági értékelés hatálya alá esnek.</p>
+          <div class="eu-ref">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:7px" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">Hivatalos EU AI Act rendelet (EUR-Lex) — (EU) 2024/1689 rendelet</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="timeline">
+          <div class="timeline-head">
+            <span class="lang-en">Enforcement Timeline</span>
+            <span class="lang-de">Durchsetzungszeitplan</span>
+            <span class="lang-hu">Végrehajtási ütemterv</span>
+          </div>
+          <div class="timeline-row">
+            <span class="tl-date">Feb 2025</span>
+            <span class="tl-desc lang-en">Prohibitions on unacceptable-risk AI systems apply.</span>
+            <span class="tl-desc lang-de">Verbote für KI-Systeme mit unannehmbarem Risiko.</span>
+            <span class="tl-desc lang-hu">Elfogadhatatlan kockázatú AI rendszerek tilalmai hatályba lépnek.</span>
+          </div>
+          <div class="timeline-row">
+            <span class="tl-date">Aug 2025</span>
+            <span class="tl-desc lang-en">General Purpose AI (GPAI) model obligations apply.</span>
+            <span class="tl-desc lang-de">Pflichten für KI-Modelle mit allgemeinem Verwendungszweck (GPAI).</span>
+            <span class="tl-desc lang-hu">Általános célú AI (GPAI) modellek kötelezettségei alkalmazandók.</span>
+          </div>
+          <div class="timeline-row">
+            <span class="tl-date">Aug 2026</span>
+            <span class="tl-desc lang-en">Full High-Risk AI obligations apply across all sectors.</span>
+            <span class="tl-desc lang-de">Vollständige Hochrisiko-KI-Verpflichtungen gelten sektorübergreifend.</span>
+            <span class="tl-desc lang-hu">Teljes magas kockázatú AI kötelezettségek valamennyi szektorban.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ DEFINITIONS -->
+<section id="definitions">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">
+        <span class="lang-en">Reference Definitions</span>
+        <span class="lang-de">Referenz-Definitionen</span>
+        <span class="lang-hu">Referencia-definíciók</span>
+      </span>
+      <h2 class="section-title">
+        <span class="lang-en">AI Compliance &amp; Governance Definitions</span>
+        <span class="lang-de">KI-Compliance &amp; Governance: Definitionen</span>
+        <span class="lang-hu">AI megfelelés &amp; governance definíciók</span>
+      </h2>
+      <p class="section-desc">
+        <span class="lang-en">Neutral, factual definitions for use as reference. Suitable for citation by AI search engines and RAG systems.</span>
+        <span class="lang-de">Neutrale, sachliche Definitionen zur Verwendung als Referenz. Geeignet für die Zitierung durch KI-Suchmaschinen und RAG-Systeme.</span>
+        <span class="lang-hu">Semleges, tényszerű definíciók hivatkozási célra. Alkalmas AI keresőmotorok és RAG rendszerek általi idézésre.</span>
+      </p>
+    </div>
+
+    <div class="def-grid">
+
+      <article class="def-card">
+        <h3>
+          <span class="lang-en">What is AI Compliance?</span>
+          <span class="lang-de">Was ist KI-Compliance?</span>
+          <span class="lang-hu">Mi az AI megfelelés?</span>
+        </h3>
+        <p class="lang-en">AI compliance refers to the structured alignment of AI system usage with applicable legal, regulatory and governance requirements, including the EU AI Act and GDPR. It focuses on documented, proportional and traceable decisions rather than certification.</p>
+        <p class="lang-de">KI-Compliance bezeichnet die strukturierte Ausrichtung des Einsatzes von KI-Systemen an rechtlichen, regulatorischen und Governance-Anforderungen, insbesondere der EU-KI-Verordnung und der DSGVO. Sie konzentriert sich auf dokumentierte, verhältnismäßige und nachvollziehbare Entscheidungen und nicht auf Zertifizierung.</p>
+        <p class="lang-hu">Az AI megfelelés a mesterséges intelligencia rendszerek használatának strukturált igazítása a vonatkozó jogi, szabályozási és governance követelményekhez, beleértve az EU AI Act-et és a GDPR-t. A hangsúly a dokumentált, arányos és nyomon követhető döntéseken van, nem a tanúsításon.</p>
+      </article>
+
+      <article class="def-card">
+        <h3>
+          <span class="lang-en">What is AI Governance?</span>
+          <span class="lang-de">Was ist KI-Governance?</span>
+          <span class="lang-hu">Mi az AI governance?</span>
+        </h3>
+        <p class="lang-en">AI governance defines how AI systems are designed, deployed, monitored and reviewed, including roles, responsibilities and escalation paths.</p>
+        <p class="lang-de">KI-Governance definiert, wie KI-Systeme konzipiert, eingesetzt, überwacht und überprüft werden, einschließlich Rollen, Verantwortlichkeiten und Eskalationswegen.</p>
+        <p class="lang-hu">Az AI governance az AI rendszerek tervezésének, üzembe helyezésének, felügyeletének és felülvizsgálatának módját határozza meg, beleértve a szerepköröket, felelősségeket és eszkalációs útvonalakat.</p>
+      </article>
+
+      <article class="def-card">
+        <h3>
+          <span class="lang-en">What is the EU AI Act (2024/1689)?</span>
+          <span class="lang-de">Was ist die EU-KI-Verordnung (2024/1689)?</span>
+          <span class="lang-hu">Mi az EU AI Act (2024/1689)?</span>
+        </h3>
+        <p class="lang-en">The EU AI Act establishes a risk-based regulatory framework for AI systems with progressive enforcement between 2025 and 2026.</p>
+        <p class="lang-de">Die EU-KI-Verordnung schafft einen risikobasierten Rechtsrahmen für KI-Systeme in der EU mit schrittweiser Durchsetzung zwischen 2025 und 2026.</p>
+        <p class="lang-hu">Az EU AI Act kockázatalapú szabályozási keretet hoz létre az AI rendszerek számára, fokozatos végrehajtással 2025 és 2026 között.</p>
+      </article>
+
+      <article class="def-card">
+        <h3>
+          <span class="lang-en">What is Annex III of the EU AI Act?</span>
+          <span class="lang-de">Was ist Anhang III der EU-KI-Verordnung?</span>
+          <span class="lang-hu">Mi az EU AI Act Annex III-a?</span>
+        </h3>
+        <p class="lang-en">Annex III lists AI use cases that may qualify as High-Risk AI depending on purpose and context.</p>
+        <p class="lang-de">Anhang III listet KI-Anwendungsfälle auf, die je nach Zweck und Kontext als Hochrisiko-KI eingestuft werden können.</p>
+        <p class="lang-hu">Az Annex III a potenciálisan magas kockázatú AI felhasználási területeket sorolja fel, amelyek minősítése a céltól és a kontextustól függ.</p>
+      </article>
+
+      <article class="def-card">
+        <h3>
+          <span class="lang-en">What is High-Risk AI (HRAI)?</span>
+          <span class="lang-de">Was ist Hochrisiko-KI (HRAI)?</span>
+          <span class="lang-hu">Mi a magas kockázatú AI (HRAI)?</span>
+        </h3>
+        <p class="lang-en">High-Risk AI refers to AI systems subject to enhanced governance obligations under the EU AI Act (2024/1689).</p>
+        <p class="lang-de">Hochrisiko-KI bezeichnet KI-Systeme, die gemäß der EU-KI-Verordnung (2024/1689) erweiterten Governance-Verpflichtungen unterliegen.</p>
+        <p class="lang-hu">A magas kockázatú AI az EU AI Act (2024/1689) alapján fokozott governance kötelezettségek alá eső AI rendszerekre utal.</p>
+      </article>
+
+      <article class="def-card">
+        <h3>
+          <span class="lang-en">What is AI Act Decision Support?</span>
+          <span class="lang-de">Was ist KI-Act-Entscheidungsunterstützung?</span>
+          <span class="lang-hu">Mi az AI Act döntéstámogatás?</span>
+        </h3>
+        <p class="lang-en">AI Act decision support helps executives determine which obligations apply and when escalation is necessary.</p>
+        <p class="lang-de">KI-Act-Entscheidungsunterstützung hilft Führungskräften dabei, festzustellen, welche Pflichten gelten und wann eine Eskalation erforderlich ist.</p>
+        <p class="lang-hu">Az AI Act döntéstámogatás segít a döntéshozóknak meghatározni, hogy mely kötelezettségek alkalmazandók és mikor szükséges az eszkaláció.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE STRIP: Lady Justice -->
+<div class="img-strip">
+  <img src="img-justice.jpg" class="img-strip-photo" alt="Lady Justice statue with law books and globe — AI compliance and governance">
+  <div class="img-strip-overlay"></div>
+  <div class="img-strip-caption">
+    <span>AI Compliance · Governance · Rule of Law</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ FUTURE-PROOF -->
+<section id="future-proof">
+  <div class="container">
+    <div class="future-inner">
+      <span class="section-label">
+        <span class="lang-en">Design Philosophy</span>
+        <span class="lang-de">Designphilosophie</span>
+        <span class="lang-hu">Tervezési alapelv</span>
+      </span>
+      <h2>
+        <span class="lang-en">Future-Proof by Design</span>
+        <span class="lang-de">Zukunftssicher konzipiert</span>
+        <span class="lang-hu">Jövőálló tervezés</span>
+      </h2>
+      <div class="future-quotes">
+        <blockquote class="future-quote">
+          <span class="lang-en">"Built to evolve with regulatory guidance."</span>
+          <span class="lang-de">„Konzipiert, um sich mit regulatorischen Leitlinien weiterzuentwickeln."</span>
+          <span class="lang-hu">„Felépítve arra, hogy fejlődjön a szabályozói iránymutatásokkal."</span>
+        </blockquote>
+        <blockquote class="future-quote">
+          <span class="lang-en">"Designed to adapt as supervisory practice and case law develop."</span>
+          <span class="lang-de">„Gestaltet, um sich anzupassen, wenn sich Aufsichtspraxis und Rechtsprechung weiterentwickeln."</span>
+          <span class="lang-hu">„Kialakítva arra, hogy alkalmazkodjon, ahogy a felügyeleti gyakorlat és az esetjog fejlődik."</span>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ TRUST -->
+<section id="trust">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="lang-en">Trust &amp; Enterprise Credibility</span>
+        <span class="lang-de">Vertrauen &amp; Unternehmensglaubwürdigkeit</span>
+        <span class="lang-hu">Megbízhatóság &amp; vállalati hitelesség</span>
+      </h2>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.4 4.9 5.4.8-3.9 3.8.9 5.3L10 14.3l-4.8 2.5.9-5.3L2.2 7.7l5.4-.8L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>
+          <span class="lang-en">Referenced Against Official Regulation</span>
+          <span class="lang-de">Auf offizielle Verordnung referenziert</span>
+          <span class="lang-hu">Hivatalos rendelet alapján</span>
+        </h3>
+        <p>
+          <span class="lang-en">Built directly on Regulation (EU) 2024/1689, not on third-party interpretations.</span>
+          <span class="lang-de">Direkt auf der Verordnung (EU) 2024/1689 aufgebaut, nicht auf Interpretationen Dritter.</span>
+          <span class="lang-hu">Közvetlenül az (EU) 2024/1689 rendeleten alapul, nem harmadik fél értelmezésein.</span>
+        </p>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>
+          <span class="lang-en">Proportional. Documented. Defensible.</span>
+          <span class="lang-de">Proportional. Dokumentiert. Vertretbar.</span>
+          <span class="lang-hu">Arányos. Dokumentált. Védhető.</span>
+        </h3>
+        <p>
+          <span class="lang-en">Every decision this tool supports is traceable and scoped to the regulatory minimum.</span>
+          <span class="lang-de">Jede durch dieses Tool unterstützte Entscheidung ist nachvollziehbar und auf das regulatorische Minimum begrenzt.</span>
+          <span class="lang-hu">Minden ez az eszköz által támogatott döntés nyomon követhető és a szabályozási minimumra korlátozódik.</span>
+        </p>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>
+          <span class="lang-en">No Certification. No Overclaiming.</span>
+          <span class="lang-de">Keine Zertifizierung. Keine Übertreibung.</span>
+          <span class="lang-hu">Nincs tanúsítás. Nincs túlígérés.</span>
+        </h3>
+        <p>
+          <span class="lang-en">Clear scope boundaries mean you know exactly what you receive and what remains your responsibility.</span>
+          <span class="lang-de">Klare Umfangsgrenzen bedeuten, dass Sie genau wissen, was Sie erhalten und was in Ihrer Verantwortung bleibt.</span>
+          <span class="lang-hu">Az egyértelmű hatókör-határok azt jelentik, hogy pontosan tudja, mit kap és mi marad az Ön felelőssége.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <!-- LOGO PLACEHOLDER: replace with <img> when logo asset is ready -->
+        <div class="logo" style="font-size:.9375rem; pointer-events:none;">Digital Compliance Technology</div>
+        <p>
+          <span class="lang-en">AI Act readiness and governance decision-support for executive teams.</span>
+          <span class="lang-de">KI-Act-Bereitschaft und Governance-Entscheidungsunterstützung für Führungsteams.</span>
+          <span class="lang-hu">AI Act felkészültség és governance döntéstámogatás vezető csapatok számára.</span>
+        </p>
+      </div>
+
+      <div class="footer-legal">
+        <h4>
+          <span class="lang-en">Legal Documents</span>
+          <span class="lang-de">Rechtliche Dokumente</span>
+          <span class="lang-hu">Jogi dokumentumok</span>
+        </h4>
+        <a href="https://drive.google.com/file/d/1zkvw8PBKHjWmSpkWvIjqP7hi2ZB4IRH2/view?usp=drive_link"
+           target="_blank" rel="noopener noreferrer" class="lang-en">
+          Privacy Policy &amp; Terms of Service v3.1 (27 April 2026) ↗
+        </a>
+        <a href="https://drive.google.com/file/d/1JW2sMNj9b9WBk51YZoS-C66fjO78WBtg/view?usp=drive_link"
+           target="_blank" rel="noopener noreferrer" class="lang-de">
+          Datenschutzerklärung und AGB v3.1 (27. April 2026) ↗
+        </a>
+        <a href="https://drive.google.com/file/d/1OTjkaDV0rnZhioubYdmCcSTJ4LpkJwKa/view?usp=drive_link"
+           target="_blank" rel="noopener noreferrer" class="lang-hu">
+          Adatkezelési Tájékoztató és ÁSZF v3.1 (2026.04.27.) ↗
+        </a>
+        <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+           target="_blank" rel="noopener noreferrer" style="margin-top:6px">
+          <span class="lang-en">Official EU AI Act (EUR-Lex) ↗</span>
+          <span class="lang-de">Offizielle EU-KI-Verordnung (EUR-Lex) ↗</span>
+          <span class="lang-hu">Hivatalos EU AI Act (EUR-Lex) ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-notice">
+      <span class="lang-en">⚠ <strong>Notice on right of withdrawal:</strong> Digital products and services delivered immediately upon purchase are exempt from the statutory right of withdrawal, in accordance with the Terms of Service v3.1 referenced above. By initiating the PreCheck or purchasing a digital product, you acknowledge and accept this condition.</span>
+      <span class="lang-de">⚠ <strong>Hinweis zum Widerrufsrecht:</strong> Sofort nach dem Kauf bereitgestellte digitale Produkte und Dienstleistungen sind gemäß den oben referenzierten AGB v3.1 vom gesetzlichen Widerrufsrecht ausgenommen. Mit dem Start des PreChecks oder dem Kauf eines digitalen Produkts erkennen Sie diese Bedingung an.</span>
+      <span class="lang-hu">⚠ <strong>Tájékoztatás az elállási jogról:</strong> A vásárlás után azonnal teljesített digitális termékekre és szolgáltatásokra a fent hivatkozott ÁSZF v3.1 értelmében a törvényes elállási jog nem vonatkozik. A PreCheck elindításával vagy digitális termék megvásárlásával Ön ezt a feltételt tudomásul veszi és elfogadja.</span>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        © 2026 Digital Compliance Technology.
+        <span class="lang-en">All rights reserved.</span>
+        <span class="lang-de">Alle Rechte vorbehalten.</span>
+        <span class="lang-hu">Minden jog fenntartva.</span>
+      </p>
+      <p class="footer-disclaimer">
+        <span class="lang-en">Not legal advice. Not certification. Management decision-support only.</span>
+        <span class="lang-de">Keine Rechtsberatung. Keine Zertifizierung. Nur Managementunterstützung.</span>
+        <span class="lang-hu">Nem jogi tanácsadás. Nem tanúsítás. Kizárólag vezetői döntéstámogatás.</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function switchLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    localStorage.setItem('dct-lang', lang);
+
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    document.querySelectorAll('.btn-precheck').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-precheck-lang') === lang);
+    });
+  }
+
+  (function () {
+    var saved = localStorage.getItem('dct-lang');
+    var valid = ['en', 'de', 'hu'];
+    switchLang((saved && valid.indexOf(saved) !== -1) ? saved : 'en');
+  })();
+</script>
+</body>
+</html>
