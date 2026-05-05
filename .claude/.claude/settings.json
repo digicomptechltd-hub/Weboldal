@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/rluxu/Desktop/Claude Code/Weboldal Project/**)",
+      "Bash(python -c ' *)",
+      "WebFetch(domain:www.euractiv.com)",
+      "WebFetch(domain:artificialintelligenceact.eu)",
+      "WebFetch(domain:www.politico.eu)",
+      "Bash(git -C \"C:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Weboldal Project\" status)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\rluxu\\Desktop\\Claude Code\\Weboldal Project"
+    ]
+  }
+}
