@@ -57,10 +57,11 @@ All colours, radii, and max-width are defined as CSS variables on `:root` at the
 
 ### Page sections (in order)
 
-`header` → `.lang-banners` → `#hero` → `#boardroom` → `#what-is` → `#how-it-works` → `#precheck` → `#eu-context` → `#definitions` → `.img-strip` (Lady Justice) → `#future-proof` → `#trust` → `footer`
+`header` → `.lang-banners` → `#hero` → `#boardroom` → `#what-is` → `#how-it-works` → `#precheck` → `#eu-context` → `#ai-act-news` → `#definitions` → `.img-strip` (Lady Justice) → `#future-proof` → `#trust` → `footer`
 
 - `.lang-banners` — three full-width banner images below the header, one per language (`banner-en.jpg`, `banner-de.jpg`, `banner-hu.jpg`). Standard language-visibility CSS handles show/hide.
 - `#hero` — two-column grid (`.hero-layout`): text left (`.hero-content`), EU flags photo right (`.hero-visual`). Image column hidden on screens ≤820px.
+- `#ai-act-news` — static news card (`.news-card`) linking to `artificialintelligenceact.eu`. Entire card is a single `<a>` tag. Cover image loaded from the external site; `onerror` fallback applies a dark gradient if the image fails. Content is static — not dynamically fetched.
 - `.img-strip` — full-width editorial image divider after `#definitions`. Contains `.img-strip-photo` (darkened/desaturated via CSS `filter`), `.img-strip-overlay` (gradient fade), `.img-strip-caption`. Currently uses `img-justice.jpg`.
 - `#definitions` — 6 `<article class="def-card">` blocks, each maps to one `FAQPage` `mainEntity` entry in the JSON-LD.
 - `#precheck` — three `.btn-precheck` anchors with `data-precheck-lang="en|de|hu"` pointing to language-specific Airtable URLs. `switchLang()` also toggles `.active` on these.

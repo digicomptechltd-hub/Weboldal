@@ -6,7 +6,7 @@ $OutputEncoding = [System.Text.Encoding]::UTF8
 
 $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","User")
 
-$projectPath = "c:\Users\rluxu\Desktop\Claude Code\Test1"
+$projectPath = "c:\Users\rluxu\Desktop\Claude Code\Weboldal Project"
 $logFile     = "$projectPath\auto-commit.log"
 $timestamp   = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 

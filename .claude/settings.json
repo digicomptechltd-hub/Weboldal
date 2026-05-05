@@ -5,7 +5,8 @@
       "PowerShell(Get-ScheduledTask -TaskName \"Weboldal_AutoCommit\" -ErrorAction SilentlyContinue | Select-Object TaskName, State, @{N=\"NextRun\";E={\\(Get-ScheduledTaskInfo -TaskName $_.TaskName\\).NextRunTime}})",
       "PowerShell(schtasks --% /create /tn \"Weboldal_AutoCommit\" /tr \"powershell.exe -NonInteractive -ExecutionPolicy Bypass -File \\\\\"c:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Test1\\\\auto-commit.ps1\\\\\"\" /sc HOURLY /mo 1 /rl HIGHEST /f)",
       "PowerShell(schtasks --% /run /tn \"Weboldal_AutoCommit\")",
-      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"User\"\\); Set-Location \"c:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Test1\"; git status --short; git log --oneline -3)"
+      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"User\"\\); Set-Location \"c:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Test1\"; git status --short; git log --oneline -3)",
+      "PowerShell(schtasks --% /delete /tn \"Weboldal_AutoCommit\" /f)"
     ]
   }
 }
