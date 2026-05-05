@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ScheduledTask -TaskName \"Weboldal_AutoCommit\" -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-ScheduledTask -TaskName \"Weboldal_AutoCommit\" -ErrorAction SilentlyContinue | Select-Object TaskName, State, @{N=\"NextRun\";E={\\(Get-ScheduledTaskInfo -TaskName $_.TaskName\\).NextRunTime}})",
+      "PowerShell(schtasks --% /create /tn \"Weboldal_AutoCommit\" /tr \"powershell.exe -NonInteractive -ExecutionPolicy Bypass -File \\\\\"c:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Test1\\\\auto-commit.ps1\\\\\"\" /sc HOURLY /mo 1 /rl HIGHEST /f)",
+      "PowerShell(schtasks --% /run /tn \"Weboldal_AutoCommit\")"
+    ]
+  }
+}
