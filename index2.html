@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js"></script>
 
   <script type="application/ld+json">
@@ -73,12 +73,12 @@
   </script>
 
   <style>
-    /* ─── Custom Properties ─── */
+    /* ─── Design Tokens ─── */
     :root {
-      --bg:           #07101d;
-      --bg-alt:       #050d17;
-      --card:         rgba(10,24,48,.72);
-      --card-hover:   rgba(14,32,62,.88);
+      --bg:           #050d1a;
+      --bg-alt:       #040a14;
+      --card:         rgba(8,18,40,.75);
+      --card-hover:   rgba(12,26,56,.9);
       --accent:       #4f8eff;
       --accent-2:     #818cf8;
       --accent-hover: #3a74f0;
@@ -86,23 +86,29 @@
       --teal-dim:     rgba(16,185,129,.12);
       --danger:       #F87171;
       --danger-dim:   rgba(248,113,113,.10);
-      --text:         #e8f0ff;
+      --text:         #eef2ff;
       --text-muted:   #8aaac8;
-      --text-dim:     #4a6180;
-      --border:       rgba(255,255,255,.09);
-      --border-acc:   rgba(79,142,255,.32);
-      --radius:       14px;
-      --radius-sm:    9px;
+      --text-dim:     #3d5473;
+      --border:       rgba(255,255,255,.08);
+      --border-acc:   rgba(79,142,255,.3);
+      --radius:       16px;
+      --radius-sm:    10px;
       --font:         'Inter', system-ui, -apple-system, sans-serif;
-      --max-w:        1160px;
-      --glow-accent:  rgba(79,142,255,.18);
-      --glow-teal:    rgba(16,185,129,.18);
+      --max-w:        1180px;
+      --glow-accent:  rgba(79,142,255,.2);
+      --glow-purple:  rgba(129,140,248,.15);
     }
 
     /* ─── Reset ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
 
     /* ─── Language visibility ─── */
     html[data-lang="en"] .lang-de,
@@ -113,549 +119,669 @@
     html[data-lang="hu"] .lang-de { display: none !important; }
 
     /* ─── Layout ─── */
-    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
-    section { padding: 96px 0; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    section { padding: 112px 0; }
 
     /* ─── Typography ─── */
-    h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -.03em; }
-    h2 { font-size: clamp(1.5rem, 3vw, 2.125rem); font-weight: 700; line-height: 1.22; letter-spacing: -.02em; }
-    h3 { font-size: 1.0625rem; font-weight: 600; line-height: 1.35; }
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -.04em;
+    }
+    h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 800; line-height: 1.2; letter-spacing: -.025em; }
+    h3 { font-size: 1.0625rem; font-weight: 700; line-height: 1.35; }
     p  { color: var(--text-muted); }
     a  { color: var(--accent); text-decoration: none; transition: color .2s; }
     a:hover { color: #80b4ff; text-decoration: underline; }
     strong { color: var(--text); font-weight: 600; }
     blockquote { font-style: italic; }
 
+    /* ─── Gradient text utility ─── */
+    .grad-text {
+      background: linear-gradient(135deg, #fff 0%, var(--accent-2) 55%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .grad-text-accent {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
     /* ─── Section header ─── */
     .section-label {
       display: inline-block;
-      font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
       background: linear-gradient(90deg, var(--teal), var(--accent));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
-    .section-title { margin-bottom: 14px; }
+    .section-title { margin-bottom: 16px; }
     .section-desc  { font-size: 1.0625rem; color: var(--text-muted); max-width: 640px; }
-    .section-header { margin-bottom: 52px; }
+    .section-header { margin-bottom: 56px; }
 
     /* ─── Buttons ─── */
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--font); font-size: .9375rem; font-weight: 600;
-      padding: 13px 28px; border-radius: 10px; border: none; cursor: pointer;
-      text-decoration: none; transition: all .28s cubic-bezier(.22,1,.36,1);
-      position: relative; overflow: hidden;
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: var(--font); font-size: .9375rem; font-weight: 700;
+      padding: 15px 32px; border-radius: 12px; border: none; cursor: pointer;
+      text-decoration: none; transition: all .3s cubic-bezier(.22,1,.36,1);
+      position: relative; overflow: hidden; white-space: nowrap;
     }
     .btn-primary {
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
       color: #fff;
-      box-shadow: 0 4px 22px rgba(79,142,255,.3);
+      box-shadow: 0 4px 24px rgba(79,142,255,.35), 0 0 0 1px rgba(79,142,255,.2);
     }
-    .btn-primary::after {
+    .btn-primary::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,.18) 0%, transparent 60%);
-      opacity: 0; transition: opacity .28s;
+      background: linear-gradient(135deg, rgba(255,255,255,.2) 0%, transparent 55%);
+      opacity: 0; transition: opacity .3s;
     }
-    .btn-primary:hover::after { opacity: 1; }
+    .btn-primary:hover::before { opacity: 1; }
     .btn-primary:hover {
       color: #fff; text-decoration: none;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(79,142,255,.5), 0 0 0 1px rgba(79,142,255,.4);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(79,142,255,.55), 0 0 0 1px rgba(79,142,255,.5), 0 0 60px rgba(79,142,255,.15);
     }
     .btn-primary:active { transform: translateY(0); }
     .btn-ghost {
-      background: rgba(255,255,255,.05); color: var(--text);
-      border: 1px solid var(--border); backdrop-filter: blur(8px);
+      background: rgba(255,255,255,.04); color: var(--text);
+      border: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(10px);
     }
     .btn-ghost:hover {
-      border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08);
       color: var(--text); text-decoration: none;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0,0,0,.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.3);
     }
     .btn-ghost:active { transform: translateY(0); }
 
-    /* ══════════════════════════════════════════════════ BANNERS */
+    /* ─── Glassmorphism card base ─── */
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    /* ══════════════════════════════════ BANNERS */
     .lang-banners { width: 100%; line-height: 0; }
     .lang-banner  { width: 100%; height: auto; display: block; }
 
-    /* ══════════════════════════════════════════════════ HEADER */
+    /* ══════════════════════════════════ HEADER */
     header {
-      position: sticky; top: 0; z-index: 100; height: 66px;
-      background: rgba(7,16,29,.82);
+      position: sticky; top: 0; z-index: 200; height: 68px;
+      background: rgba(5,10,20,.75);
       backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(255,255,255,.07);
+      border-bottom: 1px solid rgba(255,255,255,.06);
       display: flex; align-items: center;
-      transition: box-shadow .35s, border-color .35s, background .35s;
+      transition: box-shadow .4s, border-color .4s, background .4s;
     }
     header.scrolled {
-      background: rgba(7,16,29,.96);
-      border-bottom-color: rgba(79,142,255,.18);
-      box-shadow: 0 1px 0 rgba(79,142,255,.08), 0 8px 32px rgba(0,0,0,.4);
+      background: rgba(5,10,20,.95);
+      border-bottom-color: rgba(79,142,255,.22);
+      box-shadow: 0 1px 0 rgba(79,142,255,.1), 0 8px 40px rgba(0,0,0,.5);
     }
     .header-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
     .logo {
-      font-size: .9375rem; font-weight: 700; color: var(--text); letter-spacing: -.01em;
+      font-size: .9375rem; font-weight: 800; letter-spacing: -.01em;
       text-decoration: none; display: flex; align-items: center; gap: 10px;
       transition: opacity .2s;
+      background: linear-gradient(135deg, var(--text) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .logo:hover { color: var(--text); text-decoration: none; opacity: .85; }
+    .logo:hover { text-decoration: none; opacity: .85; }
     .logo-badge {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff; font-size: .6rem; font-weight: 700;
-      padding: 3px 8px; border-radius: 5px; letter-spacing: .06em; text-transform: uppercase;
-      box-shadow: 0 2px 10px rgba(79,142,255,.3);
+      -webkit-text-fill-color: #fff; color: #fff;
+      font-size: .6rem; font-weight: 700;
+      padding: 3px 9px; border-radius: 6px; letter-spacing: .07em; text-transform: uppercase;
+      box-shadow: 0 2px 12px rgba(79,142,255,.35);
+      background-clip: unset; -webkit-background-clip: unset;
     }
     .lang-switcher {
       display: flex; align-items: center; gap: 2px;
       background: rgba(255,255,255,.04); border: 1px solid var(--border);
-      border-radius: 9px; padding: 3px;
+      border-radius: 10px; padding: 3px;
     }
     .lang-btn {
       background: none; border: none; color: var(--text-muted);
-      font-family: var(--font); font-size: .78rem; font-weight: 600;
-      padding: 5px 12px; border-radius: 7px; cursor: pointer; transition: all .2s; letter-spacing: .04em;
-      position: relative;
+      font-family: var(--font); font-size: .78rem; font-weight: 700;
+      padding: 5px 13px; border-radius: 8px; cursor: pointer; transition: all .22s; letter-spacing: .05em;
     }
     .lang-btn:hover { color: var(--text); background: rgba(255,255,255,.07); }
     .lang-btn.active {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #fff;
-      box-shadow: 0 2px 12px rgba(79,142,255,.35);
+      box-shadow: 0 2px 14px rgba(79,142,255,.4);
     }
 
-    /* ══════════════════════════════════════════════════ HERO */
-    #hero { padding: 112px 0 104px; position: relative; overflow: hidden; }
+    /* ══════════════════════════════════ HERO */
+    #hero {
+      padding: 0;
+      min-height: 100svh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    /* dark mesh + radial glow background */
     #hero::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background-image:
-        linear-gradient(rgba(79,142,255,.032) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79,142,255,.032) 1px, transparent 1px);
-      background-size: 56px 56px;
+      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 50%, rgba(79,142,255,.13) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(129,140,248,.09) 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
     }
+    /* subtle grid */
     #hero::after {
-      content: ''; position: absolute; top: -220px; left: 30%; transform: translateX(-50%);
-      width: 1100px; height: 800px; pointer-events: none;
-      background: radial-gradient(ellipse at center,
-        rgba(79,142,255,.15) 0%, rgba(129,140,248,.07) 40%, transparent 68%);
+      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        linear-gradient(rgba(79,142,255,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,142,255,.028) 1px, transparent 1px);
+      background-size: 64px 64px;
     }
-    .hero-content { position: relative; z-index: 1; max-width: 840px; }
+    .hero-inner { position: relative; z-index: 1; width: 100%; padding: 120px 0 100px; }
+    .hero-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .hero-content { position: relative; z-index: 1; }
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 9px;
+      display: inline-flex; align-items: center; gap: 10px;
       font-size: .8125rem; font-weight: 500; color: var(--text-muted);
-      border: 1px solid rgba(79,142,255,.22); border-radius: 24px; padding: 6px 16px;
-      margin-bottom: 30px; background: rgba(79,142,255,.07);
-      backdrop-filter: blur(8px);
+      border: 1px solid rgba(79,142,255,.25); border-radius: 24px; padding: 7px 18px;
+      margin-bottom: 32px; background: rgba(79,142,255,.07);
+      backdrop-filter: blur(10px);
       animation: borderPulse 4s ease-in-out infinite;
-      box-shadow: 0 0 18px rgba(79,142,255,.06), inset 0 1px 0 rgba(255,255,255,.06);
+      box-shadow: 0 0 20px rgba(79,142,255,.07), inset 0 1px 0 rgba(255,255,255,.07);
     }
     .hero-dot {
       width: 7px; height: 7px; background: var(--teal); border-radius: 50%;
-      flex-shrink: 0; animation: pulse 2.4s ease-in-out infinite;
-      box-shadow: 0 0 10px rgba(16,185,129,.6);
+      flex-shrink: 0; animation: dotPulse 2.4s ease-in-out infinite;
+      box-shadow: 0 0 12px rgba(16,185,129,.7);
     }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.75)} }
-    @keyframes shimmer {
-      0%   { background-position: -200% center; }
-      100% { background-position:  200% center; }
-    }
+    @keyframes dotPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.7)} }
     @keyframes borderPulse {
-      0%,100% { border-color: rgba(79,142,255,.18); }
-      50%      { border-color: rgba(79,142,255,.38); }
+      0%,100% { border-color: rgba(79,142,255,.2); box-shadow: 0 0 20px rgba(79,142,255,.05); }
+      50%      { border-color: rgba(79,142,255,.45); box-shadow: 0 0 28px rgba(79,142,255,.14); }
     }
-    .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    #hero h1 { margin-bottom: 22px; }
-    .hero-sub { font-size: 1.125rem; color: var(--text-muted); max-width: 520px; margin-bottom: 42px; }
-    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    #hero h1 { margin-bottom: 26px; }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--text-muted); max-width: 510px; margin-bottom: 48px; line-height: 1.7;
+    }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Hero visual */
     .hero-visual {
-      position: relative; border-radius: var(--radius); overflow: hidden;
-      aspect-ratio: 4/3; flex-shrink: 0;
-      box-shadow: 0 32px 72px rgba(0,0,0,.6), 0 0 0 1px rgba(79,142,255,.18);
-      transition: box-shadow .4s, transform .4s cubic-bezier(.22,1,.36,1);
+      position: relative; border-radius: 20px; overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 0 0 1px rgba(79,142,255,.2), 0 40px 80px rgba(0,0,0,.7), 0 0 80px rgba(79,142,255,.08);
+      transition: box-shadow .5s, transform .5s cubic-bezier(.22,1,.36,1);
     }
     .hero-visual:hover {
-      box-shadow: 0 40px 88px rgba(0,0,0,.7), 0 0 0 1px rgba(79,142,255,.35), 0 0 40px rgba(79,142,255,.1);
-      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 0 0 1px rgba(79,142,255,.4), 0 48px 96px rgba(0,0,0,.75), 0 0 120px rgba(79,142,255,.15);
+      transform: translateY(-6px) scale(1.01);
     }
     .hero-visual-img {
       width: 100%; height: 100%; object-fit: cover;
       object-position: center 55%; display: block;
-      filter: brightness(0.55) saturate(0.7);
+      filter: brightness(0.5) saturate(0.65);
     }
     .hero-visual-overlay {
       position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(135deg, rgba(79,142,255,.2) 0%, rgba(7,16,29,.3) 100%);
+      background: linear-gradient(135deg, rgba(79,142,255,.22) 0%, rgba(5,10,20,.35) 100%);
     }
     .hero-visual-badge {
-      position: absolute; bottom: 20px; left: 20px;
-      background: rgba(7,16,29,.88); backdrop-filter: blur(10px);
-      border: 1px solid var(--border-acc); border-radius: 9px;
-      padding: 9px 15px; font-size: .75rem; font-weight: 600;
-      color: #93C5FD; letter-spacing: .02em;
+      position: absolute; bottom: 22px; left: 22px;
+      background: rgba(5,10,20,.9); backdrop-filter: blur(12px);
+      border: 1px solid var(--border-acc); border-radius: 10px;
+      padding: 10px 16px; font-size: .75rem; font-weight: 700;
+      color: #93C5FD; letter-spacing: .03em;
+      box-shadow: 0 4px 20px rgba(0,0,0,.4);
     }
-    @media (max-width: 820px) {
+    @media (max-width: 860px) {
       .hero-layout { grid-template-columns: 1fr; }
       .hero-visual { display: none; }
     }
 
-    /* ══════════════════════════════════════════════════ BOARDROOM */
-    #boardroom { background: var(--bg-alt); }
-    .boardroom-card {
-      background: var(--card); border-radius: var(--radius);
-      padding: 40px 48px; max-width: 860px;
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), 0 8px 48px rgba(0,0,0,.32),
-                  inset 0 1px 0 rgba(255,255,255,.06);
+    /* ══════════════════════════════════ BOARDROOM */
+    #boardroom {
+      background: var(--bg-alt);
+      position: relative; overflow: hidden;
     }
-    .bl { list-style: none; display: flex; flex-direction: column; gap: 15px; margin-top: 24px; }
-    .bl li { display: flex; align-items: flex-start; gap: 14px; font-size: 1rem; color: var(--text-muted); }
-    .bl li::before {
-      content: ''; flex-shrink: 0; width: 18px; height: 18px; margin-top: 4px;
-      border-radius: 50%; background: var(--teal-dim); border: 1.5px solid var(--teal);
-      box-shadow: 0 0 8px rgba(16,185,129,.22);
+    #boardroom::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      filter: brightness(0.06) saturate(0.4);
     }
-    .bl li strong { color: var(--text); }
+    #boardroom::after {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(135deg, rgba(5,10,20,.92) 0%, rgba(4,10,18,.85) 100%);
+    }
+    .boardroom-content { position: relative; z-index: 1; }
+    .boardroom-bullets {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 8px;
+    }
+    .boardroom-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: border-color .25s, box-shadow .25s, transform .3s cubic-bezier(.22,1,.36,1);
+      position: relative; overflow: hidden;
+    }
+    .boardroom-item::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      opacity: 0; transition: opacity .3s;
+    }
+    .boardroom-item:hover { border-color: var(--border-acc); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.4), 0 0 24px rgba(79,142,255,.07); }
+    .boardroom-item:hover::before { opacity: 1; }
+    .boardroom-num {
+      font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; opacity: .6;
+    }
+    .boardroom-item p { font-size: .9625rem; color: var(--text-muted); line-height: 1.7; }
+    .boardroom-item strong { color: var(--text); }
 
-    /* ══════════════════════════════════════════════════ WHAT IS / NOT */
+    /* ══════════════════════════════════ WHAT IS / NOT */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .check-card {
       background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 32px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      transition: box-shadow .25s, transform .25s;
+      padding: 36px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      transition: box-shadow .28s, transform .28s;
     }
-    .check-card:hover { transform: translateY(-3px); }
+    .check-card:hover { transform: translateY(-4px); }
     .check-card.is-card  { border-top: 2px solid var(--teal); }
     .check-card.not-card { border-top: 2px solid var(--danger); }
-    .check-card.is-card:hover  { box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 28px rgba(16,185,129,.08); }
-    .check-card.not-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 28px rgba(248,113,113,.08); }
+    .check-card.is-card:hover  { box-shadow: 0 16px 48px rgba(0,0,0,.4), 0 0 30px rgba(16,185,129,.09); }
+    .check-card.not-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,.4), 0 0 30px rgba(248,113,113,.09); }
     .check-card-title {
-      font-size: 1rem; font-weight: 700; margin-bottom: 20px;
-      display: flex; align-items: center; gap: 9px;
+      font-size: 1rem; font-weight: 800; margin-bottom: 22px;
+      display: flex; align-items: center; gap: 10px; letter-spacing: -.01em;
     }
     .is-card  .check-card-title { color: var(--teal); }
     .not-card .check-card-title { color: var(--danger); }
-    .check-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-    .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: .9375rem; color: var(--text-muted); }
-    .ci { flex-shrink: 0; line-height: 1.55; font-size: .9rem; }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .check-list li { display: flex; align-items: flex-start; gap: 11px; font-size: .9375rem; color: var(--text-muted); }
+    .ci { flex-shrink: 0; line-height: 1.55; font-size: .95rem; font-weight: 700; }
 
-    /* ══════════════════════════════════════════════════ HOW IT WORKS */
+    /* ══════════════════════════════════ HOW IT WORKS */
     #how-it-works { background: var(--bg-alt); }
-    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .step-card {
       background: var(--card); border-radius: var(--radius);
-      padding: 28px 24px;
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s;
-      position: relative;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.09);
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      transition: transform .32s cubic-bezier(.22,1,.36,1), box-shadow .32s, border-color .25s;
+      position: relative; overflow: hidden;
     }
-    .step-card::before {
+    .step-card::after {
       content: ''; position: absolute; inset: 0; border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(79,142,255,.08) 0%, transparent 60%);
+      background: linear-gradient(135deg, rgba(79,142,255,.07) 0%, transparent 55%);
       opacity: 0; transition: opacity .3s;
     }
     .step-card:hover {
       transform: translateY(-6px);
-      box-shadow: inset 0 0 0 1px rgba(79,142,255,.4), 0 20px 56px rgba(0,0,0,.45), 0 0 28px rgba(79,142,255,.1);
+      border-color: var(--border-acc);
+      box-shadow: 0 24px 64px rgba(0,0,0,.5), 0 0 32px rgba(79,142,255,.1);
     }
-    .step-card:hover::before { opacity: 1; }
+    .step-card:hover::after { opacity: 1; }
     .step-num {
-      font-size: 2.25rem; font-weight: 800; line-height: 1; margin-bottom: 16px;
+      font-size: 3.5rem; font-weight: 900; line-height: 1; margin-bottom: 18px;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; opacity: .8;
+      background-clip: text; opacity: .55;
     }
-    .step-card h3 { margin-bottom: 8px; font-size: .9375rem; }
-    .step-card p  { font-size: .875rem; }
+    .step-card h3 { margin-bottom: 10px; font-size: 1rem; }
+    .step-card p  { font-size: .9rem; }
 
-    /* ══════════════════════════════════════════════════ PRECHECK */
+    /* ══════════════════════════════════ PRECHECK */
     #precheck {
-      background: linear-gradient(150deg, #0b1e42 0%, var(--bg) 100%);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      text-align: center; position: relative; overflow: hidden;
+      position: relative; overflow: hidden;
+      text-align: center;
     }
     #precheck::before {
-      content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 600px; pointer-events: none;
-      background: radial-gradient(ellipse, rgba(79,142,255,.1) 0%, transparent 65%);
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      filter: brightness(0.07) saturate(0.3);
     }
-    .precheck-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
-    #precheck h2 { margin-bottom: 12px; }
-    #precheck .section-desc { margin: 0 auto 40px; }
-    .precheck-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    #precheck::after {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(150deg, rgba(11,30,66,.97) 0%, rgba(5,10,20,.93) 100%);
+    }
+    /* accent glow orb */
+    .precheck-glow {
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 700px; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse, rgba(79,142,255,.12) 0%, rgba(129,140,248,.06) 40%, transparent 65%);
+    }
+    .precheck-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
+    #precheck h2 { margin-bottom: 14px; }
+    #precheck .section-desc { margin: 0 auto 44px; }
+    .precheck-buttons { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
     .btn-precheck {
-      display: inline-flex; flex-direction: column; align-items: center; gap: 5px;
+      display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
       background: var(--card); border: 1.5px solid var(--border); border-radius: var(--radius);
-      padding: 22px 36px; color: var(--text); font-family: var(--font);
-      cursor: pointer; text-decoration: none; transition: all .25s; min-width: 164px;
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      padding: 26px 44px; color: var(--text); font-family: var(--font);
+      cursor: pointer; text-decoration: none; transition: all .28s cubic-bezier(.22,1,.36,1); min-width: 180px;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     }
     .btn-precheck:hover {
-      border-color: rgba(79,142,255,.5); background: rgba(79,142,255,.1);
-      color: var(--text); text-decoration: none; transform: translateY(-3px);
-      box-shadow: 0 14px 38px rgba(0,0,0,.35), 0 0 20px rgba(79,142,255,.14);
+      border-color: rgba(79,142,255,.6); background: rgba(79,142,255,.12);
+      color: var(--text); text-decoration: none; transform: translateY(-4px);
+      box-shadow: 0 16px 44px rgba(0,0,0,.4), 0 0 28px rgba(79,142,255,.18);
     }
     .btn-precheck.active {
-      border-color: var(--accent); background: rgba(79,142,255,.12);
-      box-shadow: 0 0 22px rgba(79,142,255,.22);
+      border-color: var(--accent); background: rgba(79,142,255,.14);
+      box-shadow: 0 0 28px rgba(79,142,255,.25);
     }
-    .btn-precheck-flag { font-size: 1.75rem; line-height: 1; }
-    .btn-precheck-lang { font-size: .875rem; font-weight: 700; letter-spacing: .05em; }
+    .btn-precheck-flag { font-size: 2.2rem; line-height: 1; }
+    .btn-precheck-lang { font-size: .9rem; font-weight: 800; letter-spacing: .06em; }
     .btn-precheck-sub  { font-size: .75rem; color: var(--text-dim); }
-    .precheck-note { margin-top: 24px; font-size: .8125rem; color: var(--text-dim); }
+    .precheck-note { margin-top: 28px; font-size: .8125rem; color: var(--text-dim); }
 
-    /* ══════════════════════════════════════════════════ EU CONTEXT */
-    .eu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-    .eu-text p { margin-bottom: 16px; font-size: .9375rem; }
+    /* ══════════════════════════════════ EU CONTEXT */
+    #eu-context { background: var(--bg); }
+    .eu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .eu-text p { margin-bottom: 18px; font-size: .9625rem; color: var(--text-muted); }
+    .eu-ref {
+      margin-top: 24px; padding: 16px 20px; font-size: .875rem;
+      background: rgba(79,142,255,.06); border: 1px solid var(--border-acc); border-radius: var(--radius-sm);
+    }
+    .eu-ref a { font-weight: 700; color: var(--accent); }
+
+    /* Timeline */
     .timeline {
       background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 40px rgba(0,0,0,.3);
     }
     .timeline-head {
-      padding: 15px 22px; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 16px 24px; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
       color: var(--text-muted); border-bottom: 1px solid var(--border);
-      background: rgba(79,142,255,.06);
+      background: rgba(79,142,255,.07);
     }
     .timeline-row {
-      display: flex; gap: 16px; padding: 16px 22px; border-bottom: 1px solid var(--border);
-      transition: background .2s;
+      display: flex; gap: 0; border-bottom: 1px solid var(--border);
+      transition: background .2s; position: relative;
     }
     .timeline-row:last-child { border-bottom: none; }
     .timeline-row:hover { background: rgba(79,142,255,.05); }
     .tl-date {
-      flex-shrink: 0; font-size: .8125rem; font-weight: 700; min-width: 88px;
+      flex-shrink: 0; padding: 18px 24px; font-size: .8125rem; font-weight: 800;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+      background-clip: text; min-width: 110px;
+      border-right: 1px solid var(--border);
+      display: flex; align-items: center;
     }
-    .tl-desc { font-size: .875rem; color: var(--text-muted); }
-    .eu-ref {
-      margin-top: 22px; padding: 15px 18px; font-size: .875rem;
-      background: rgba(79,142,255,.06); border: 1px solid var(--border-acc); border-radius: var(--radius-sm);
-    }
-    .eu-ref a { font-weight: 600; }
+    .tl-desc { font-size: .875rem; color: var(--text-muted); padding: 18px 24px; display: flex; align-items: center; }
 
-    /* ══════════════════════════════════════════════════ DEFINITIONS */
-    #definitions { background: var(--bg-alt); }
-    .def-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    article.def-card {
-      background: var(--card); border-radius: var(--radius); padding: 28px 28px 24px;
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s;
-      position: relative;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.09), inset 3px 0 0 var(--accent);
-    }
-    article.def-card:hover {
-      transform: translateY(-4px);
-      box-shadow: inset 0 0 0 1px rgba(16,185,129,.3), inset 3px 0 0 var(--teal),
-                  0 16px 48px rgba(0,0,0,.42), 0 0 22px rgba(16,185,129,.08);
-    }
-    article.def-card h3 { margin-bottom: 12px; font-size: 1rem; }
-    article.def-card p  { font-size: .9rem; line-height: 1.72; }
-
-    /* ══════════════════════════════════════════════════ FUTURE-PROOF */
-    #future-proof { text-align: center; background: linear-gradient(180deg, var(--bg) 0%, #040b14 100%); }
-    .future-inner { max-width: 720px; margin: 0 auto; }
-    .future-quotes { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
-    .future-quote {
-      font-size: 1.0625rem; color: var(--text-muted); padding: 22px 36px;
-      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      transition: border-color .25s, box-shadow .25s;
-    }
-    .future-quote:hover { border-color: var(--border-acc); box-shadow: 0 8px 32px rgba(0,0,0,.3); }
-
-    /* ══════════════════════════════════════════════════ TRUST */
-    .trust-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .trust-card {
-      background: var(--card); border-radius: var(--radius);
-      padding: 32px; text-align: center;
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s;
-      position: relative;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.09);
-    }
-    .trust-card:hover {
-      transform: translateY(-5px);
-      box-shadow: inset 0 0 0 1px rgba(79,142,255,.35), 0 20px 52px rgba(0,0,0,.42), 0 0 24px rgba(79,142,255,.09);
-    }
-    .trust-card:hover .trust-icon {
-      background: linear-gradient(135deg, rgba(79,142,255,.26), rgba(129,140,248,.26));
-      box-shadow: 0 0 20px rgba(79,142,255,.25);
-    }
-    .trust-icon {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, rgba(79,142,255,.16), rgba(129,140,248,.16));
-      border: 1px solid rgba(79,142,255,.22);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 18px; color: var(--accent);
-      transition: background .3s, box-shadow .3s;
-    }
-    .trust-card h3 { font-size: .9375rem; margin-bottom: 8px; }
-    .trust-card p  { font-size: .875rem; }
-
-    /* ══════════════════════════════════════════════════ IMPRESSUM */
-    #impressum { background: var(--bg-alt); border-top: 1px solid var(--border); padding: 48px 0 40px; }
-    .impressum-inner { max-width: 860px; }
-    .impressum-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px;
-    }
-    .impressum-block {
-      background: var(--card); border-radius: var(--radius-sm); padding: 16px 18px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.07);
-    }
-    .impressum-block h4 {
-      font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--text-dim); margin-bottom: 8px;
-    }
-    .impressum-block p, .impressum-block address {
-      font-size: .78rem; color: var(--text-muted); line-height: 1.7; font-style: normal;
-    }
-    .impressum-block a { font-size: .78rem; color: var(--accent); }
-    .impressum-block a:hover { color: #80b4ff; }
-    .impressum-disclaimer {
-      margin-top: 16px; padding: 12px 16px; font-size: .75rem; color: var(--text-dim);
-      background: rgba(255,255,255,.02); border: 1px solid var(--border); border-radius: var(--radius-sm);
-      line-height: 1.7;
-    }
-    @media (max-width: 960px) { .impressum-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 620px) { .impressum-grid { grid-template-columns: 1fr; } }
-
-    /* ══════════════════════════════════════════════════ FOOTER */
-    footer { background: var(--bg-alt); border-top: 1px solid var(--border); padding: 56px 0 32px; }
-    .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 40px; }
-    .footer-brand p { font-size: .875rem; margin-top: 10px; max-width: 320px; }
-    .footer-legal h4 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
-    .footer-legal a { display: block; font-size: .875rem; margin-bottom: 8px; }
-    .footer-notice {
-      padding: 18px 22px; font-size: .8125rem; color: var(--text-dim);
-      background: rgba(255,255,255,.025); border: 1px solid var(--border); border-radius: var(--radius-sm);
-      margin-bottom: 32px; line-height: 1.7;
-    }
-    .footer-notice strong { color: var(--text-muted); }
-    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-    .footer-bottom p { font-size: .8125rem; }
-    .footer-disclaimer { font-size: .75rem; color: var(--text-dim); text-align: right; }
-
-    /* ══════════════════════════════════════════════════ NEWS CARD */
+    /* ══════════════════════════════════ NEWS */
     #ai-act-news { background: var(--bg-alt); }
     .news-card-wrap { display: flex; justify-content: center; }
     .news-card {
-      display: flex; flex-direction: row; gap: 0;
+      display: flex; flex-direction: row;
       background: var(--card); border: 1px solid var(--border);
       border-radius: var(--radius); overflow: hidden;
-      max-width: 820px; width: 100%;
-      transition: border-color .25s, box-shadow .25s, transform .25s;
+      max-width: 860px; width: 100%;
+      transition: border-color .28s, box-shadow .28s, transform .28s;
       text-decoration: none; color: inherit;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     }
     .news-card:hover {
       border-color: var(--border-acc);
-      box-shadow: 0 18px 52px rgba(0,0,0,.45);
-      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 32px rgba(79,142,255,.08);
+      transform: translateY(-5px);
       text-decoration: none; color: inherit;
     }
-    .news-card-img {
-      flex: 0 0 300px; width: 300px; overflow: hidden;
-      position: relative;
-    }
+    .news-card-img { flex: 0 0 300px; width: 300px; overflow: hidden; position: relative; }
     .news-card-img img {
       width: 100%; height: 100%; object-fit: cover; display: block;
-      filter: brightness(0.88) saturate(0.9);
+      filter: brightness(0.85) saturate(0.88);
       transition: transform .5s ease, filter .3s ease;
     }
-    .news-card:hover .news-card-img img {
-      transform: scale(1.04);
-      filter: brightness(0.95) saturate(1.05);
-    }
+    .news-card:hover .news-card-img img { transform: scale(1.05); filter: brightness(0.95) saturate(1.05); }
     .news-card-body {
-      flex: 1; padding: 32px 36px;
+      flex: 1; padding: 36px 40px;
       display: flex; flex-direction: column; justify-content: center; gap: 14px;
     }
     .news-card-source {
       display: inline-flex; align-items: center; gap: 8px;
-      font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+      font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
       color: var(--accent);
     }
-    .news-card-source svg { flex-shrink: 0; }
-    .news-card-title {
-      font-size: 1.1875rem; font-weight: 700; line-height: 1.35;
-      color: var(--text); letter-spacing: -.015em;
-    }
-    .news-card-desc {
-      font-size: .9rem; color: var(--text-muted); line-height: 1.7;
-    }
+    .news-card-title { font-size: 1.2rem; font-weight: 800; line-height: 1.3; color: var(--text); letter-spacing: -.015em; }
+    .news-card-desc  { font-size: .9rem; color: var(--text-muted); line-height: 1.7; }
     .news-card-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: .8125rem; font-weight: 600; color: var(--accent);
-      margin-top: 4px;
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .8125rem; font-weight: 700; color: var(--accent); margin-top: 4px;
     }
     .news-card-cta svg { transition: transform .2s; }
-    .news-card:hover .news-card-cta svg { transform: translateX(4px); }
-    @media (max-width: 680px) {
+    .news-card:hover .news-card-cta svg { transform: translateX(5px); }
+    @media (max-width: 700px) {
       .news-card { flex-direction: column; }
       .news-card-img { flex: 0 0 200px; width: 100%; height: 200px; }
     }
 
-    /* ══════════════════════════════════════════════════ IMAGE STRIPS */
-    .img-strip { position: relative; overflow: hidden; height: 300px; display: block; }
+    /* ══════════════════════════════════ DEFINITIONS */
+    #definitions { background: var(--bg); }
+    .def-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    article.def-card {
+      background: var(--card); border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, border-color .25s;
+      position: relative; overflow: hidden;
+    }
+    article.def-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+    article.def-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(79,142,255,.3);
+      box-shadow: 0 20px 56px rgba(0,0,0,.45), 0 0 28px rgba(79,142,255,.08);
+    }
+    .def-badge {
+      width: 40px; height: 40px; border-radius: 10px; margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(79,142,255,.2), rgba(129,140,248,.2));
+      border: 1px solid rgba(79,142,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 900;
+      background-clip: unset;
+      color: var(--accent);
+    }
+    article.def-card h3 { margin-bottom: 12px; font-size: .9625rem; }
+    article.def-card p  { font-size: .875rem; line-height: 1.75; }
+
+    /* ══════════════════════════════════ IMG STRIP */
+    .img-strip { position: relative; overflow: hidden; height: 320px; display: block; }
     .img-strip-photo {
       width: 100%; height: 100%; object-fit: cover; display: block;
-      filter: brightness(0.4) saturate(0.6);
-      transition: transform 6s ease;
+      filter: brightness(0.35) saturate(0.5);
+      transition: transform 7s ease;
     }
-    .img-strip:hover .img-strip-photo { transform: scale(1.03); }
+    .img-strip:hover .img-strip-photo { transform: scale(1.04); }
     .img-strip-overlay {
       position: absolute; inset: 0; pointer-events: none;
       background:
-        linear-gradient(to right,  var(--bg) 0%, transparent 18%, transparent 82%, var(--bg) 100%),
-        linear-gradient(to bottom, var(--bg) 0%, transparent 20%, transparent 80%, var(--bg) 100%);
+        linear-gradient(to right,  var(--bg) 0%, transparent 20%, transparent 80%, var(--bg) 100%),
+        linear-gradient(to bottom, var(--bg) 0%, transparent 22%, transparent 78%, var(--bg) 100%);
     }
     .img-strip-caption {
-      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
       text-align: center; pointer-events: none; white-space: nowrap;
     }
     .img-strip-caption span {
-      font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(255,255,255,.35);
+      font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.32);
     }
-    @media (max-width: 620px) { .img-strip { height: 180px; } }
+    @media (max-width: 620px) { .img-strip { height: 200px; } }
 
-    /* ══════════════════════════════════════════════════ RESPONSIVE */
-    @media (max-width: 960px) {
+    /* ══════════════════════════════════ FUTURE-PROOF */
+    #future-proof {
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg) 0%, #030810 100%);
+    }
+    .future-inner { max-width: 760px; margin: 0 auto; }
+    .future-quotes { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
+    .future-quote {
+      font-size: 1.125rem; color: var(--text-muted); padding: 28px 40px;
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      transition: border-color .28s, box-shadow .28s;
+    }
+    .future-quote:hover { border-color: var(--border-acc); box-shadow: 0 10px 36px rgba(0,0,0,.35); }
+
+    /* ══════════════════════════════════ TRUST */
+    #trust {
+      position: relative; overflow: hidden;
+      background: var(--bg-alt);
+    }
+    #trust::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      filter: brightness(0.05) saturate(0.3);
+    }
+    .trust-content { position: relative; z-index: 1; }
+    .trust-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .trust-card {
+      background: var(--card); border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 36px; text-align: center;
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      transition: transform .32s cubic-bezier(.22,1,.36,1), box-shadow .32s, border-color .25s;
+    }
+    .trust-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-acc);
+      box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 32px rgba(79,142,255,.1);
+    }
+    .trust-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, rgba(79,142,255,.18), rgba(129,140,248,.18));
+      border: 1px solid rgba(79,142,255,.25);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; color: var(--accent);
+      transition: background .3s, box-shadow .3s;
+    }
+    .trust-card:hover .trust-icon {
+      background: linear-gradient(135deg, rgba(79,142,255,.3), rgba(129,140,248,.3));
+      box-shadow: 0 0 24px rgba(79,142,255,.28);
+    }
+    .trust-card h3 { font-size: 1rem; margin-bottom: 10px; }
+    .trust-card p  { font-size: .9rem; }
+
+    /* ══════════════════════════════════ IMPRESSUM */
+    #impressum {
+      background: var(--bg-alt); border-top: 1px solid var(--border); padding: 56px 0 48px;
+    }
+    .impressum-inner { max-width: 920px; }
+    .impressum-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+    .impressum-block {
+      background: var(--card); border-radius: var(--radius-sm); padding: 18px 20px;
+      border: 1px solid var(--border);
+    }
+    .impressum-block h4 {
+      font-size: .6rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 10px;
+    }
+    .impressum-block p, .impressum-block address {
+      font-size: .78rem; color: var(--text-muted); line-height: 1.75; font-style: normal;
+    }
+    .impressum-block a { font-size: .78rem; color: var(--accent); }
+    .impressum-block a:hover { color: #80b4ff; }
+    .impressum-disclaimer {
+      margin-top: 18px; padding: 14px 18px; font-size: .75rem; color: var(--text-dim);
+      background: rgba(255,255,255,.02); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      line-height: 1.75;
+    }
+    @media (max-width: 960px) { .impressum-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .impressum-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════ FOOTER */
+    footer { background: #030810; border-top: 1px solid var(--border); padding: 64px 0 36px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; margin-bottom: 44px;
+    }
+    .footer-brand-name {
+      font-size: 1rem; font-weight: 800; letter-spacing: -.01em;
+      background: linear-gradient(135deg, var(--text) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 12px;
+    }
+    .footer-brand p { font-size: .875rem; color: var(--text-muted); max-width: 300px; }
+    .footer-col h4 {
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 16px;
+    }
+    .footer-col a { display: block; font-size: .875rem; margin-bottom: 10px; color: var(--text-muted); }
+    .footer-col a:hover { color: var(--accent); text-decoration: none; }
+    .footer-notice {
+      padding: 20px 24px; font-size: .8125rem; color: var(--text-dim);
+      background: rgba(255,255,255,.02); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      margin-bottom: 36px; line-height: 1.75;
+    }
+    .footer-notice strong { color: var(--text-muted); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: .8125rem; color: var(--text-muted); }
+    .footer-disclaimer { font-size: .75rem; color: var(--text-dim); text-align: right; }
+
+    /* ══════════════════════════════════ RESPONSIVE */
+    @media (max-width: 1024px) {
+      .boardroom-bullets { grid-template-columns: 1fr; }
+      .def-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 860px) {
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .eu-grid    { grid-template-columns: 1fr; }
       .trust-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 620px) {
-      section { padding: 64px 0; }
-      #hero   { padding: 72px 0 64px; }
+      section { padding: 72px 0; }
       .two-col    { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: 1fr; }
       .def-grid   { grid-template-columns: 1fr; }
       .trust-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
-      .boardroom-card { padding: 28px 22px; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
       .footer-disclaimer { text-align: left; }
+      .boardroom-bullets { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════════ HEADER -->
+<!-- ════════════════════════════════════════════════ HEADER -->
 <header>
   <div class="container">
     <div class="header-inner">
-      <!-- LOGO PLACEHOLDER: replace the text below with an <img> tag when logo asset is available -->
+      <!-- LOGO PLACEHOLDER -->
       <a href="#" class="logo" aria-label="Digital Compliance Technology – Home">
         Digital Compliance Technology
         <span class="logo-badge lang-en">AI Act</span>
         <span class="logo-badge lang-de">KI-Verordnung</span>
         <span class="logo-badge lang-hu">AI Act</span>
       </a>
-
       <nav class="lang-switcher" aria-label="Language selector">
         <button class="lang-btn active" data-lang="en" onclick="switchLang('en')" aria-label="Switch to English">EN</button>
         <button class="lang-btn"        data-lang="de" onclick="switchLang('de')" aria-label="Auf Deutsch wechseln">DE</button>
@@ -674,58 +800,59 @@
 
 <main>
 
-<!-- ══════════════════════════════════════════════════════════ HERO -->
+<!-- ════════════════════════════════════════════════ HERO -->
 <section id="hero">
-  <div class="container">
+  <div class="container hero-inner">
     <div class="hero-layout">
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="hero-dot" aria-hidden="true"></span>
-        <span class="lang-en">EU AI Act (Regulation (EU) 2024/1689) · Enforcement 2025–2026</span>
-        <span class="lang-de">EU-KI-Verordnung (EU) 2024/1689 · Durchsetzung 2025–2026</span>
-        <span class="lang-hu">EU AI Act ((EU) 2024/1689 rendelet) · Végrehajtás 2025–2026</span>
+
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="hero-dot" aria-hidden="true"></span>
+          <span class="lang-en">EU AI Act (Regulation (EU) 2024/1689) · Enforcement 2025–2026</span>
+          <span class="lang-de">EU-KI-Verordnung (EU) 2024/1689 · Durchsetzung 2025–2026</span>
+          <span class="lang-hu">EU AI Act ((EU) 2024/1689 rendelet) · Végrehajtás 2025–2026</span>
+        </div>
+
+        <h1 class="grad-text">
+          <span class="lang-en">AI Act Readiness &amp; Governance for Executive Decision-Making</span>
+          <span class="lang-de">KI-Bereitschaft &amp; Governance für Führungsentscheidungen</span>
+          <span class="lang-hu">AI Act felkészültség &amp; döntéstámogatás vezető döntéshozóknak</span>
+        </h1>
+
+        <p class="hero-sub">
+          <span class="lang-en">Structured management decision-support for EU AI Act scope, classification, and defensible compliance documentation.</span>
+          <span class="lang-de">Strukturierte Managementunterstützung für Anwendungsbereich, Klassifizierung und dokumentierte Compliance gemäß EU-KI-Verordnung.</span>
+          <span class="lang-hu">Strukturált vezetői döntéstámogatás az EU AI Act hatályához, osztályozáshoz és igazolható compliance dokumentációhoz.</span>
+        </p>
+
+        <div class="hero-cta">
+          <a href="#precheck" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            <span class="lang-en">Start AI Act PreCheck</span>
+            <span class="lang-de">KI-Act-PreCheck starten</span>
+            <span class="lang-hu">AI Act PreCheck indítása</span>
+          </a>
+          <a href="#definitions" class="btn btn-ghost">
+            <span class="lang-en">Reference Definitions</span>
+            <span class="lang-de">Referenz-Definitionen</span>
+            <span class="lang-hu">Referencia-definíciók</span>
+          </a>
+        </div>
       </div>
 
-      <h1>
-        <span class="lang-en">AI Act Readiness &amp; Governance for Executive Decision-Making</span>
-        <span class="lang-de">KI-Bereitschaft &amp; Governance für Führungsentscheidungen</span>
-        <span class="lang-hu">AI Act felkészültség &amp; döntéstámogatás vezető döntéshozóknak</span>
-      </h1>
-
-      <p class="hero-sub">
-        <span class="lang-en">Structured management decision-support for EU AI Act scope, classification, and defensible compliance documentation.</span>
-        <span class="lang-de">Strukturierte Managementunterstützung für Anwendungsbereich, Klassifizierung und dokumentierte Compliance gemäß EU-KI-Verordnung.</span>
-        <span class="lang-hu">Strukturált vezetői döntéstámogatás az EU AI Act hatályához, osztályozáshoz és igazolható compliance dokumentációhoz.</span>
-      </p>
-
-      <div class="hero-cta">
-        <a href="#precheck" class="btn btn-primary">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <span class="lang-en">Start AI Act PreCheck</span>
-          <span class="lang-de">KI-Act-PreCheck starten</span>
-          <span class="lang-hu">AI Act PreCheck indítása</span>
-        </a>
-        <a href="#definitions" class="btn btn-ghost">
-          <span class="lang-en">Reference Definitions</span>
-          <span class="lang-de">Referenz-Definitionen</span>
-          <span class="lang-hu">Referencia-definíciók</span>
-        </a>
+      <div class="hero-visual">
+        <img src="img-eu-flags.jpg" class="hero-visual-img" alt="EU flags in front of Brussels building — EU AI Act regulatory context">
+        <div class="hero-visual-overlay"></div>
+        <div class="hero-visual-badge">Regulation (EU) 2024/1689</div>
       </div>
-    </div>
 
-    <div class="hero-visual">
-      <img src="img-eu-flags.jpg" class="hero-visual-img" alt="EU flags in front of Brussels building — EU AI Act regulatory context">
-      <div class="hero-visual-overlay"></div>
-      <div class="hero-visual-badge">Regulation (EU) 2024/1689</div>
     </div>
-
-    </div><!-- /hero-layout -->
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════ BOARDROOM -->
+<!-- ════════════════════════════════════════════════ BOARDROOM -->
 <section id="boardroom">
-  <div class="container">
+  <div class="container boardroom-content">
     <div class="section-header">
       <span class="section-label">
         <span class="lang-en">60-Second Brief</span>
@@ -739,28 +866,41 @@
       </h2>
     </div>
 
-    <div class="boardroom-card">
-      <ul class="bl">
-        <li class="lang-en"><span>The <strong>EU AI Act</strong> applies a risk-based classification to AI systems in the EU market — not all AI systems are subject to the same obligations.</span></li>
-        <li class="lang-en"><span>Not every AI system qualifies as <strong>High-Risk</strong> — classification depends on the system's purpose, context, and deployment conditions, not its technology alone.</span></li>
-        <li class="lang-en"><span><strong>Proportional, documented decision-making</strong> reduces exposure and demonstrates due diligence without over-engineering compliance.</span></li>
-        <li class="lang-en"><span>This tool <strong>clarifies scope</strong>, supports regulatory routing, and produces defensible management documentation at the appropriate level.</span></li>
+    <div class="boardroom-bullets">
 
-        <li class="lang-de"><span>Die <strong>EU-KI-Verordnung</strong> wendet eine risikobasierte Klassifizierung auf KI-Systeme im EU-Markt an — nicht alle Systeme unterliegen denselben Pflichten.</span></li>
-        <li class="lang-de"><span>Nicht jedes KI-System gilt als <strong>Hochrisiko</strong> — die Einstufung hängt von Zweck, Kontext und Einsatzbedingungen ab, nicht allein von der Technologie.</span></li>
-        <li class="lang-de"><span><strong>Proportionale, dokumentierte Entscheidungsfindung</strong> reduziert Risiken und demonstriert Sorgfalt, ohne übermäßigen Compliance-Aufwand.</span></li>
-        <li class="lang-de"><span>Dieses Tool <strong>klärt den Anwendungsbereich</strong>, unterstützt das regulatorische Routing und erstellt verteidigbare Managementdokumentation.</span></li>
+      <div class="boardroom-item">
+        <div class="boardroom-num">01</div>
+        <p class="lang-en">The <strong>EU AI Act</strong> applies a risk-based classification to AI systems in the EU market — not all AI systems are subject to the same obligations.</p>
+        <p class="lang-de">Die <strong>EU-KI-Verordnung</strong> wendet eine risikobasierte Klassifizierung auf KI-Systeme im EU-Markt an — nicht alle Systeme unterliegen denselben Pflichten.</p>
+        <p class="lang-hu">Az <strong>EU AI Act</strong> kockázatalapú osztályozást alkalmaz az EU piacon működő AI rendszerekre — nem minden rendszerre vonatkoznak ugyanazok a kötelezettségek.</p>
+      </div>
 
-        <li class="lang-hu"><span>Az <strong>EU AI Act</strong> kockázatalapú osztályozást alkalmaz az EU piacon működő AI rendszerekre — nem minden rendszerre vonatkoznak ugyanazok a kötelezettségek.</span></li>
-        <li class="lang-hu"><span>Nem minden AI rendszer minősül <strong>magas kockázatúnak</strong> — a besorolás a rendszer céljától, kontextusától és alkalmazási körülményeitől függ.</span></li>
-        <li class="lang-hu"><span>Az <strong>arányos, dokumentált döntéshozatal</strong> csökkenti a kitettséget és bizonyítja a kellő gondosságot, anélkül hogy túlbonyolítaná a megfelelést.</span></li>
-        <li class="lang-hu"><span>Ez az eszköz <strong>tisztázza a hatályt</strong>, támogatja a szabályozási útvonal meghatározását, és igazolható vezetői dokumentációt állít elő.</span></li>
-      </ul>
+      <div class="boardroom-item">
+        <div class="boardroom-num">02</div>
+        <p class="lang-en">Not every AI system qualifies as <strong>High-Risk</strong> — classification depends on the system's purpose, context, and deployment conditions, not its technology alone.</p>
+        <p class="lang-de">Nicht jedes KI-System gilt als <strong>Hochrisiko</strong> — die Einstufung hängt von Zweck, Kontext und Einsatzbedingungen ab, nicht allein von der Technologie.</p>
+        <p class="lang-hu">Nem minden AI rendszer minősül <strong>magas kockázatúnak</strong> — a besorolás a rendszer céljától, kontextusától és alkalmazási körülményeitől függ.</p>
+      </div>
+
+      <div class="boardroom-item">
+        <div class="boardroom-num">03</div>
+        <p class="lang-en"><strong>Proportional, documented decision-making</strong> reduces exposure and demonstrates due diligence without over-engineering compliance.</p>
+        <p class="lang-de"><strong>Proportionale, dokumentierte Entscheidungsfindung</strong> reduziert Risiken und demonstriert Sorgfalt, ohne übermäßigen Compliance-Aufwand.</p>
+        <p class="lang-hu">Az <strong>arányos, dokumentált döntéshozatal</strong> csökkenti a kitettséget és bizonyítja a kellő gondosságot, anélkül hogy túlbonyolítaná a megfelelést.</p>
+      </div>
+
+      <div class="boardroom-item">
+        <div class="boardroom-num">04</div>
+        <p class="lang-en">This tool <strong>clarifies scope</strong>, supports regulatory routing, and produces defensible management documentation at the appropriate level.</p>
+        <p class="lang-de">Dieses Tool <strong>klärt den Anwendungsbereich</strong>, unterstützt das regulatorische Routing und erstellt verteidigbare Managementdokumentation.</p>
+        <p class="lang-hu">Ez az eszköz <strong>tisztázza a hatályt</strong>, támogatja a szabályozási útvonal meghatározását, és igazolható vezetői dokumentációt állít elő.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ WHAT IS / IS NOT -->
+<!-- ════════════════════════════════════════════════ WHAT IS / NOT -->
 <section id="what-is">
   <div class="container">
     <div class="section-header">
@@ -770,7 +910,6 @@
         <span class="lang-hu">Mi ez — és mi nem ez</span>
       </h2>
     </div>
-
     <div class="two-col">
       <div class="check-card is-card">
         <div class="check-card-title">
@@ -784,19 +923,16 @@
           <li class="lang-en"><span class="ci" style="color:var(--teal)">✓</span><span>AI Act readiness &amp; regulatory routing engine</span></li>
           <li class="lang-en"><span class="ci" style="color:var(--teal)">✓</span><span>Defensible minimum baseline for proportional compliance</span></li>
           <li class="lang-en"><span class="ci" style="color:var(--teal)">✓</span><span>Structured entry point to Transparency, PreCheck, and HRAI assessment</span></li>
-
           <li class="lang-de"><span class="ci" style="color:var(--teal)">✓</span><span>Managementunterstützung für Anwendungsbereich und Klassifizierung</span></li>
           <li class="lang-de"><span class="ci" style="color:var(--teal)">✓</span><span>KI-Act-Bereitschaft &amp; regulatorisches Routing-System</span></li>
           <li class="lang-de"><span class="ci" style="color:var(--teal)">✓</span><span>Verteidigbare Mindestgrundlage für proportionale Compliance</span></li>
           <li class="lang-de"><span class="ci" style="color:var(--teal)">✓</span><span>Strukturierter Einstieg in Transparenz, PreCheck und HRAI-Bewertung</span></li>
-
           <li class="lang-hu"><span class="ci" style="color:var(--teal)">✓</span><span>Vezetői döntéstámogatás az AI Act hatályához és osztályozáshoz</span></li>
           <li class="lang-hu"><span class="ci" style="color:var(--teal)">✓</span><span>AI Act felkészültség &amp; szabályozási útválasztó rendszer</span></li>
           <li class="lang-hu"><span class="ci" style="color:var(--teal)">✓</span><span>Igazolható minimális alapszint arányos megfeleléshez</span></li>
           <li class="lang-hu"><span class="ci" style="color:var(--teal)">✓</span><span>Strukturált belépési pont a Transparencia, PreCheck és HRAI értékeléshez</span></li>
         </ul>
       </div>
-
       <div class="check-card not-card">
         <div class="check-card-title">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor" fill-opacity=".15"/><path d="M6 6l6 6M12 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -809,12 +945,10 @@
           <li class="lang-en"><span class="ci" style="color:var(--danger)">✕</span><span>AI Act certification or accreditation</span></li>
           <li class="lang-en"><span class="ci" style="color:var(--danger)">✕</span><span>A formal compliance audit</span></li>
           <li class="lang-en"><span class="ci" style="color:var(--danger)">✕</span><span>A guarantee of regulatory compliance</span></li>
-
           <li class="lang-de"><span class="ci" style="color:var(--danger)">✕</span><span>Rechtsberatung oder Rechtsauslegung</span></li>
           <li class="lang-de"><span class="ci" style="color:var(--danger)">✕</span><span>KI-Act-Zertifizierung oder Akkreditierung</span></li>
           <li class="lang-de"><span class="ci" style="color:var(--danger)">✕</span><span>Ein formales Compliance-Audit</span></li>
           <li class="lang-de"><span class="ci" style="color:var(--danger)">✕</span><span>Eine Garantie für regulatorische Compliance</span></li>
-
           <li class="lang-hu"><span class="ci" style="color:var(--danger)">✕</span><span>Jogi tanácsadás vagy jogi értelmezés</span></li>
           <li class="lang-hu"><span class="ci" style="color:var(--danger)">✕</span><span>AI Act tanúsítás vagy akkreditáció</span></li>
           <li class="lang-hu"><span class="ci" style="color:var(--danger)">✕</span><span>Formális compliance audit</span></li>
@@ -825,7 +959,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ HOW IT WORKS -->
+<!-- ════════════════════════════════════════════════ HOW IT WORKS -->
 <section id="how-it-works">
   <div class="container">
     <div class="section-header">
@@ -840,7 +974,6 @@
         <span class="lang-hu">Hogyan működik</span>
       </h2>
     </div>
-
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">01</div>
@@ -898,8 +1031,9 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ PRECHECK CTA -->
+<!-- ════════════════════════════════════════════════ PRECHECK CTA -->
 <section id="precheck">
+  <div class="precheck-glow"></div>
   <div class="container">
     <div class="precheck-inner">
       <span class="section-label">
@@ -917,11 +1051,9 @@
         <span class="lang-de">Wählen Sie Ihre Sprache, um mit dem strukturierten KI-Act-Intake zu beginnen. Öffnet in einem neuen Tab.</span>
         <span class="lang-hu">Válassza ki preferált nyelvét a strukturált AI Act bevitel megkezdéséhez. Új lapon nyílik meg.</span>
       </p>
-
       <div class="precheck-buttons">
         <a href="https://airtable.com/appXjjPrAfvyGqddh/shrbgGYcyiWuQ1r8x?prefill_requested_language=en"
-           target="_blank" rel="noopener noreferrer"
-           class="btn-precheck" data-precheck-lang="en">
+           target="_blank" rel="noopener noreferrer" class="btn-precheck" data-precheck-lang="en">
           <span class="btn-precheck-flag">🇬🇧</span>
           <span class="btn-precheck-lang">EN</span>
           <span class="btn-precheck-sub lang-en">Start in English</span>
@@ -929,8 +1061,7 @@
           <span class="btn-precheck-sub lang-hu">Angolul</span>
         </a>
         <a href="https://airtable.com/appXjjPrAfvyGqddh/shr2Tf6IvbtZRazTL?prefill_requested_language=de"
-           target="_blank" rel="noopener noreferrer"
-           class="btn-precheck" data-precheck-lang="de">
+           target="_blank" rel="noopener noreferrer" class="btn-precheck" data-precheck-lang="de">
           <span class="btn-precheck-flag">🇩🇪</span>
           <span class="btn-precheck-lang">DE</span>
           <span class="btn-precheck-sub lang-en">Start in German</span>
@@ -938,8 +1069,7 @@
           <span class="btn-precheck-sub lang-hu">Németül</span>
         </a>
         <a href="https://airtable.com/appXjjPrAfvyGqddh/shr1rOwad4u4epAcN?prefill_requested_language=hu"
-           target="_blank" rel="noopener noreferrer"
-           class="btn-precheck" data-precheck-lang="hu">
+           target="_blank" rel="noopener noreferrer" class="btn-precheck" data-precheck-lang="hu">
           <span class="btn-precheck-flag">🇭🇺</span>
           <span class="btn-precheck-lang">HU</span>
           <span class="btn-precheck-sub lang-en">Start in Hungarian</span>
@@ -947,7 +1077,6 @@
           <span class="btn-precheck-sub lang-hu">Magyarul</span>
         </a>
       </div>
-
       <p class="precheck-note">
         <span class="lang-en">No registration required to begin. No legal advice is provided.</span>
         <span class="lang-de">Keine Registrierung erforderlich. Es wird keine Rechtsberatung geleistet.</span>
@@ -957,7 +1086,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ EU CONTEXT -->
+<!-- ════════════════════════════════════════════════ EU CONTEXT -->
 <section id="eu-context">
   <div class="container">
     <div class="section-header">
@@ -972,7 +1101,6 @@
         <span class="lang-hu">EU AI Act kontextus &amp; hivatalos hivatkozások</span>
       </h2>
     </div>
-
     <div class="eu-grid">
       <div class="eu-text">
         <div class="lang-en">
@@ -980,7 +1108,7 @@
           <p>AI transparency obligations under <strong>Article 50</strong> apply to certain AI systems regardless of risk classification, covering disclosure requirements in human-facing interactions.</p>
           <p>Administrative fines may reach up to <strong>€35 million or 7% of global annual turnover</strong>, depending on the nature and severity of the violation. These thresholds are subject to supervisory authority discretion and proportionality assessment.</p>
           <div class="eu-ref">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:7px" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:7px" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="#4f8eff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">Official EU AI Act regulation (EUR-Lex) — Regulation (EU) 2024/1689</a>
           </div>
         </div>
@@ -989,7 +1117,7 @@
           <p>Transparenzpflichten gemäß <strong>Artikel 50</strong> gelten für bestimmte KI-Systeme unabhängig von der Risikoeinstufung und umfassen Offenlegungspflichten bei Interaktionen mit Personen.</p>
           <p>Verwaltungsstrafen können bis zu <strong>35 Millionen Euro oder 7 % des weltweiten Jahresumsatzes</strong> betragen. Diese Schwellenwerte unterliegen dem Ermessen der Aufsichtsbehörde und einer Verhältnismäßigkeitsprüfung.</p>
           <div class="eu-ref">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:7px" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:7px" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="#4f8eff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">Offizielle EU-KI-Verordnung (EUR-Lex) — Verordnung (EU) 2024/1689</a>
           </div>
         </div>
@@ -998,7 +1126,7 @@
           <p>Az <strong>50. cikk</strong> szerinti AI átláthatósági kötelezettségek bizonyos AI rendszerekre kockázati besorolástól függetlenül érvényesek, lefedve a személyekkel folytatott interakciókra vonatkozó közzétételi követelményeket.</p>
           <p>A közigazgatási bírságok elérheti a <strong>35 millió eurót vagy a globális éves forgalom 7%-át</strong>, a jogsértés jellegétől és súlyosságától függően. E küszöbértékek a felügyeleti hatóság mérlegelési jogköre és arányossági értékelés hatálya alá esnek.</p>
           <div class="eu-ref">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:7px" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="display:inline;vertical-align:middle;margin-right:7px" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="#4f8eff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">Hivatalos EU AI Act rendelet (EUR-Lex) — (EU) 2024/1689 rendelet</a>
           </div>
         </div>
@@ -1035,7 +1163,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ AI ACT NEWS -->
+<!-- ════════════════════════════════════════════════ AI ACT NEWS -->
 <section id="ai-act-news">
   <div class="container">
     <div class="section-header">
@@ -1055,39 +1183,31 @@
         <span class="lang-hu">Maradjon tájékozott az EU AI Act végrehajtási mérföldköveiről, útmutatóiról és szakpolitikai fejleményeiről.</span>
       </p>
     </div>
-
     <div class="news-card-wrap">
       <a href="https://artificialintelligenceact.eu/"
          target="_blank" rel="noopener noreferrer"
          class="news-card"
          aria-label="artificialintelligenceact.eu — EU AI Act news and analysis">
-
         <div class="news-card-img">
-          <img
-            src="https://artificialintelligenceact.eu/wp-content/uploads/2024/02/EU_AI_Act_Coverpage_wide.jpg"
-            alt="EU AI Act — official cover"
-            loading="lazy"
-            onerror="this.closest('.news-card-img').style.background='linear-gradient(135deg,#0a1830,#1a3060)';this.style.display='none'">
+          <img src="https://artificialintelligenceact.eu/wp-content/uploads/2024/02/EU_AI_Act_Coverpage_wide.jpg"
+               alt="EU AI Act — official cover" loading="lazy"
+               onerror="this.closest('.news-card-img').style.background='linear-gradient(135deg,#0a1830,#1a3060)';this.style.display='none'">
         </div>
-
         <div class="news-card-body">
           <span class="news-card-source">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M6.5 1h5.5v5.5M12 1L6.5 6.5M1 6.5V12h5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             artificialintelligenceact.eu
           </span>
-
           <div class="news-card-title">
             <span class="lang-en">EU AI Act — News, Analysis &amp; Implementation Resources</span>
             <span class="lang-de">EU-KI-Verordnung — Nachrichten, Analysen &amp; Umsetzungsressourcen</span>
             <span class="lang-hu">EU AI Act — Hírek, elemzések &amp; implementációs források</span>
           </div>
-
           <p class="news-card-desc">
             <span class="lang-en">The leading independent resource on EU AI Act implementation — covering enforcement milestones, GPAI guidance, compliance tools, and policy developments. Maintained by the Future of Life Institute, 150,000+ monthly readers.</span>
             <span class="lang-de">Die führende unabhängige Ressource zur Umsetzung der EU-KI-Verordnung — mit Durchsetzungsmeilensteinen, GPAI-Leitlinien, Compliance-Tools und politischen Entwicklungen. Betrieben vom Future of Life Institute, 150.000+ monatliche Leser.</span>
             <span class="lang-hu">Az EU AI Act implementációjának vezető független forrása — végrehajtási mérföldkövek, GPAI útmutatók, megfelelési eszközök és szakpolitikai fejlemények. A Future of Life Institute gondozásában, 150 000+ havi olvasóval.</span>
           </p>
-
           <span class="news-card-cta">
             <span class="lang-en">Explore AI Act resources</span>
             <span class="lang-de">KI-Verordnung-Ressourcen erkunden</span>
@@ -1095,13 +1215,12 @@
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </div>
-
       </a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ DEFINITIONS -->
+<!-- ════════════════════════════════════════════════ DEFINITIONS -->
 <section id="definitions">
   <div class="container">
     <div class="section-header">
@@ -1121,10 +1240,10 @@
         <span class="lang-hu">Semleges, tényszerű definíciók hivatkozási célra. Alkalmas AI keresőmotorok és RAG rendszerek általi idézésre.</span>
       </p>
     </div>
-
     <div class="def-grid">
 
       <article class="def-card">
+        <div class="def-badge">01</div>
         <h3>
           <span class="lang-en">What is AI Compliance?</span>
           <span class="lang-de">Was ist KI-Compliance?</span>
@@ -1136,6 +1255,7 @@
       </article>
 
       <article class="def-card">
+        <div class="def-badge">02</div>
         <h3>
           <span class="lang-en">What is AI Governance?</span>
           <span class="lang-de">Was ist KI-Governance?</span>
@@ -1147,6 +1267,7 @@
       </article>
 
       <article class="def-card">
+        <div class="def-badge">03</div>
         <h3>
           <span class="lang-en">What is the EU AI Act (2024/1689)?</span>
           <span class="lang-de">Was ist die EU-KI-Verordnung (2024/1689)?</span>
@@ -1158,6 +1279,7 @@
       </article>
 
       <article class="def-card">
+        <div class="def-badge">04</div>
         <h3>
           <span class="lang-en">What is Annex III of the EU AI Act?</span>
           <span class="lang-de">Was ist Anhang III der EU-KI-Verordnung?</span>
@@ -1169,6 +1291,7 @@
       </article>
 
       <article class="def-card">
+        <div class="def-badge">05</div>
         <h3>
           <span class="lang-en">What is High-Risk AI (HRAI)?</span>
           <span class="lang-de">Was ist Hochrisiko-KI (HRAI)?</span>
@@ -1180,6 +1303,7 @@
       </article>
 
       <article class="def-card">
+        <div class="def-badge">06</div>
         <h3>
           <span class="lang-en">What is AI Act Decision Support?</span>
           <span class="lang-de">Was ist KI-Act-Entscheidungsunterstützung?</span>
@@ -1203,7 +1327,7 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════ FUTURE-PROOF -->
+<!-- ════════════════════════════════════════════════ FUTURE-PROOF -->
 <section id="future-proof">
   <div class="container">
     <div class="future-inner">
@@ -1233,9 +1357,9 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ TRUST -->
+<!-- ════════════════════════════════════════════════ TRUST -->
 <section id="trust">
-  <div class="container">
+  <div class="container trust-content">
     <div class="section-header">
       <h2 class="section-title">
         <span class="lang-en">Trust &amp; Enterprise Credibility</span>
@@ -1243,11 +1367,11 @@
         <span class="lang-hu">Megbízhatóság &amp; vállalati hitelesség</span>
       </h2>
     </div>
-
     <div class="trust-grid">
+
       <div class="trust-card">
         <div class="trust-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.4 4.9 5.4.8-3.9 3.8.9 5.3L10 14.3l-4.8 2.5.9-5.3L2.2 7.7l5.4-.8L10 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2l2.6 5.3 5.9.85-4.25 4.14.99 5.84L11 15.4l-5.24 2.73.99-5.84L2.5 8.15l5.9-.85L11 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
         </div>
         <h3>
           <span class="lang-en">Referenced Against Official Regulation</span>
@@ -1263,7 +1387,7 @@
 
       <div class="trust-card">
         <div class="trust-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M8 11l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <h3>
           <span class="lang-en">Proportional. Documented. Defensible.</span>
@@ -1279,7 +1403,7 @@
 
       <div class="trust-card">
         <div class="trust-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M11 7v5.5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <h3>
           <span class="lang-en">No Certification. No Overclaiming.</span>
@@ -1292,13 +1416,14 @@
           <span class="lang-hu">Az egyértelmű hatókör-határok azt jelentik, hogy pontosan tudja, mit kap és mi marad az Ön felelőssége.</span>
         </p>
       </div>
+
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ══════════════════════════════════════════════ IMPRESSUM -->
+<!-- ════════════════════════════════════════════════ IMPRESSUM -->
 <section id="impressum">
   <div class="container">
     <div class="impressum-inner">
@@ -1307,15 +1432,13 @@
         <span class="lang-de">Impressum</span>
         <span class="lang-hu">Impresszum</span>
       </span>
-      <h2 class="section-title">
+      <h2 class="section-title" style="font-size:1.4rem;">
         <span class="lang-en">Imprint &amp; Legal Information</span>
         <span class="lang-de">Impressum &amp; Rechtliche Angaben</span>
         <span class="lang-hu">Impresszum &amp; Jogi adatok</span>
       </h2>
-
       <div class="impressum-grid">
 
-        <!-- Szolgáltató / Provider -->
         <div class="impressum-block">
           <h4>
             <span class="lang-en">Service Provider</span>
@@ -1323,25 +1446,12 @@
             <span class="lang-hu">Szolgáltató</span>
           </h4>
           <address>
-            <span class="lang-en">
-              Tóth Bálint (sole trader)<br>
-              operating as Digital Compliance Technology<br>
-              Békéscsaba, 5600 Hungary
-            </span>
-            <span class="lang-de">
-              Tóth Bálint (Einzelunternehmer)<br>
-              tätig als Digital Compliance Technology<br>
-              Békéscsaba, 5600 Ungarn
-            </span>
-            <span class="lang-hu">
-              Tóth Bálint EV<br>
-              Digital Compliance Technology<br>
-              5600 Békéscsaba, Magyarország
-            </span>
+            <span class="lang-en">Tóth Bálint (sole trader)<br>operating as Digital Compliance Technology<br>Békéscsaba, 5600 Hungary</span>
+            <span class="lang-de">Tóth Bálint (Einzelunternehmer)<br>tätig als Digital Compliance Technology<br>Békéscsaba, 5600 Ungarn</span>
+            <span class="lang-hu">Tóth Bálint EV<br>Digital Compliance Technology<br>5600 Békéscsaba, Magyarország</span>
           </address>
         </div>
 
-        <!-- Kapcsolat / Contact -->
         <div class="impressum-block">
           <h4>
             <span class="lang-en">Contact</span>
@@ -1356,7 +1466,6 @@
           </p>
         </div>
 
-        <!-- Adószám / Tax -->
         <div class="impressum-block">
           <h4>
             <span class="lang-en">Tax Identification</span>
@@ -1371,7 +1480,6 @@
           </p>
         </div>
 
-        <!-- Felügyeleti hatóság / Authority -->
         <div class="impressum-block">
           <h4>
             <span class="lang-en">Supervisory Authority</span>
@@ -1379,46 +1487,31 @@
             <span class="lang-hu">Felügyeleti hatóság</span>
           </h4>
           <p>
-            <span class="lang-en">
-              National Authority for Data Protection and Freedom of Information (NAIH)<br>
-              <a href="https://www.naih.hu" target="_blank" rel="noopener noreferrer">www.naih.hu ↗</a>
-            </span>
-            <span class="lang-de">
-              Nationale Behörde für Datenschutz und Informationsfreiheit (NAIH)<br>
-              <a href="https://www.naih.hu" target="_blank" rel="noopener noreferrer">www.naih.hu ↗</a>
-            </span>
-            <span class="lang-hu">
-              Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)<br>
-              <a href="https://www.naih.hu" target="_blank" rel="noopener noreferrer">www.naih.hu ↗</a>
-            </span>
+            <span class="lang-en">National Authority for Data Protection and Freedom of Information (NAIH)<br><a href="https://www.naih.hu" target="_blank" rel="noopener noreferrer">www.naih.hu ↗</a></span>
+            <span class="lang-de">Nationale Behörde für Datenschutz und Informationsfreiheit (NAIH)<br><a href="https://www.naih.hu" target="_blank" rel="noopener noreferrer">www.naih.hu ↗</a></span>
+            <span class="lang-hu">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)<br><a href="https://www.naih.hu" target="_blank" rel="noopener noreferrer">www.naih.hu ↗</a></span>
           </p>
         </div>
 
-      </div><!-- /impressum-grid -->
-
-      <div class="impressum-disclaimer">
-        <span class="lang-en">
-          <strong style="color:var(--text-muted)">Content liability:</strong> The content of this website has been prepared with the utmost care. This service constitutes management decision-support only — not legal advice, legal interpretation, certification, or a compliance guarantee. Users remain solely responsible for their own compliance decisions.
-        </span>
-        <span class="lang-de">
-          <strong style="color:var(--text-muted)">Inhaltliche Verantwortung:</strong> Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Dieser Dienst ist ausschließlich eine Managementunterstützung — keine Rechtsberatung, keine Rechtsauslegung, keine Zertifizierung und keine Compliance-Garantie. Die Nutzer tragen die alleinige Verantwortung für ihre eigenen Compliance-Entscheidungen.
-        </span>
-        <span class="lang-hu">
-          <strong style="color:var(--text-muted)">Tartalmi felelősség:</strong> A weboldal tartalmát a lehető legnagyobb gondossággal készítettük el. Ez a szolgáltatás kizárólag vezetői döntéstámogatás — nem jogi tanácsadás, nem jogi értelmezés, nem tanúsítás és nem compliance-garancia. A felhasználók kizárólag saját maguk felelősek compliance-döntéseikért.
-        </span>
       </div>
 
+      <div class="impressum-disclaimer">
+        <span class="lang-en"><strong style="color:var(--text-muted)">Content liability:</strong> The content of this website has been prepared with the utmost care. This service constitutes management decision-support only — not legal advice, legal interpretation, certification, or a compliance guarantee. Users remain solely responsible for their own compliance decisions.</span>
+        <span class="lang-de"><strong style="color:var(--text-muted)">Inhaltliche Verantwortung:</strong> Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Dieser Dienst ist ausschließlich eine Managementunterstützung — keine Rechtsberatung, keine Rechtsauslegung, keine Zertifizierung und keine Compliance-Garantie. Die Nutzer tragen die alleinige Verantwortung für ihre eigenen Compliance-Entscheidungen.</span>
+        <span class="lang-hu"><strong style="color:var(--text-muted)">Tartalmi felelősség:</strong> A weboldal tartalmát a lehető legnagyobb gondossággal készítettük el. Ez a szolgáltatás kizárólag vezetői döntéstámogatás — nem jogi tanácsadás, nem jogi értelmezés, nem tanúsítás és nem compliance-garancia. A felhasználók kizárólag saját maguk felelősek compliance-döntéseikért.</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ FOOTER -->
+<!-- ════════════════════════════════════════════════ FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
+
       <div class="footer-brand">
-        <!-- LOGO PLACEHOLDER: replace with <img> when logo asset is ready -->
-        <div class="logo" style="font-size:.9375rem; pointer-events:none;">Digital Compliance Technology</div>
+        <!-- LOGO PLACEHOLDER -->
+        <div class="footer-brand-name">Digital Compliance Technology</div>
         <p>
           <span class="lang-en">AI Act readiness and governance decision-support for executive teams.</span>
           <span class="lang-de">KI-Act-Bereitschaft und Governance-Entscheidungsunterstützung für Führungsteams.</span>
@@ -1426,7 +1519,7 @@
         </p>
       </div>
 
-      <div class="footer-legal">
+      <div class="footer-col">
         <h4>
           <span class="lang-en">Legal Documents</span>
           <span class="lang-de">Rechtliche Dokumente</span>
@@ -1434,34 +1527,43 @@
         </h4>
         <a href="https://drive.google.com/file/d/1zkvw8PBKHjWmSpkWvIjqP7hi2ZB4IRH2/view?usp=drive_link"
            target="_blank" rel="noopener noreferrer" class="lang-en">
-          Privacy Policy &amp; Terms of Service v3.1 (27 April 2026) ↗
+          Privacy Policy &amp; Terms v3.1 ↗
         </a>
         <a href="https://drive.google.com/file/d/1JW2sMNj9b9WBk51YZoS-C66fjO78WBtg/view?usp=drive_link"
            target="_blank" rel="noopener noreferrer" class="lang-de">
-          Datenschutzerklärung und AGB v3.1 (27. April 2026) ↗
+          Datenschutzerklärung und AGB v3.1 ↗
         </a>
         <a href="https://drive.google.com/file/d/1OTjkaDV0rnZhioubYdmCcSTJ4LpkJwKa/view?usp=drive_link"
            target="_blank" rel="noopener noreferrer" class="lang-hu">
-          Adatkezelési Tájékoztató és ÁSZF v3.1 (2026.04.27.) ↗
+          Adatkezelési Tájékoztató és ÁSZF v3.1 ↗
         </a>
-        <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
-           target="_blank" rel="noopener noreferrer" style="margin-top:6px">
+        <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">
           <span class="lang-en">Official EU AI Act (EUR-Lex) ↗</span>
           <span class="lang-de">Offizielle EU-KI-Verordnung (EUR-Lex) ↗</span>
           <span class="lang-hu">Hivatalos EU AI Act (EUR-Lex) ↗</span>
         </a>
-        <a href="#impressum" style="margin-top:6px">
+      </div>
+
+      <div class="footer-col">
+        <h4>
+          <span class="lang-en">Company</span>
+          <span class="lang-de">Unternehmen</span>
+          <span class="lang-hu">Vállalat</span>
+        </h4>
+        <a href="#impressum">
           <span class="lang-en">Legal Notice / Imprint</span>
           <span class="lang-de">Impressum</span>
           <span class="lang-hu">Impresszum</span>
         </a>
+        <a href="mailto:digicomptechltd@gmail.com">digicomptechltd@gmail.com</a>
       </div>
+
     </div>
 
     <div class="footer-notice">
-      <span class="lang-en">⚠ <strong>Notice on right of withdrawal:</strong> Digital products and services delivered immediately upon purchase are exempt from the statutory right of withdrawal, in accordance with the Terms of Service v3.1 referenced above. By initiating the PreCheck or purchasing a digital product, you acknowledge and accept this condition.</span>
-      <span class="lang-de">⚠ <strong>Hinweis zum Widerrufsrecht:</strong> Sofort nach dem Kauf bereitgestellte digitale Produkte und Dienstleistungen sind gemäß den oben referenzierten AGB v3.1 vom gesetzlichen Widerrufsrecht ausgenommen. Mit dem Start des PreChecks oder dem Kauf eines digitalen Produkts erkennen Sie diese Bedingung an.</span>
-      <span class="lang-hu">⚠ <strong>Tájékoztatás az elállási jogról:</strong> A vásárlás után azonnal teljesített digitális termékekre és szolgáltatásokra a fent hivatkozott ÁSZF v3.1 értelmében a törvényes elállási jog nem vonatkozik. A PreCheck elindításával vagy digitális termék megvásárlásával Ön ezt a feltételt tudomásul veszi és elfogadja.</span>
+      <span class="lang-en">&#9888; <strong>Notice on right of withdrawal:</strong> Digital products and services delivered immediately upon purchase are exempt from the statutory right of withdrawal, in accordance with the Terms of Service v3.1 referenced above. By initiating the PreCheck or purchasing a digital product, you acknowledge and accept this condition.</span>
+      <span class="lang-de">&#9888; <strong>Hinweis zum Widerrufsrecht:</strong> Sofort nach dem Kauf bereitgestellte digitale Produkte und Dienstleistungen sind gemäß den oben referenzierten AGB v3.1 vom gesetzlichen Widerrufsrecht ausgenommen. Mit dem Start des PreChecks oder dem Kauf eines digitalen Produkts erkennen Sie diese Bedingung an.</span>
+      <span class="lang-hu">&#9888; <strong>Tájékoztatás az elállási jogról:</strong> A vásárlás után azonnal teljesített digitális termékekre és szolgáltatásokra a fent hivatkozott ÁSZF v3.1 értelmében a törvényes elállási jog nem vonatkozik. A PreCheck elindításával vagy digitális termék megvásárlásával Ön ezt a feltételt tudomásul veszi és elfogadja.</span>
     </div>
 
     <div class="footer-bottom">
@@ -1481,99 +1583,96 @@
 </footer>
 
 <script>
-  // Scroll-érzékeny header
+  // ── Scroll-érzékeny header ──
   (function () {
     var header = document.querySelector('header');
-    var onScroll = function () {
-      header.classList.toggle('scrolled', window.scrollY > 20);
-    };
+    function onScroll() { header.classList.toggle('scrolled', window.scrollY > 20); }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   })();
 
+  // ── Motion animációk ──
   (function () {
     var { animate, inView } = Motion;
-
-    var fadeUp = { opacity: [0, 1], y: [32, 0] };
+    var fadeUp = { opacity: [0, 1], y: [36, 0] };
     var fadeIn = { opacity: [0, 1] };
-    var opts   = { duration: 0.55, easing: [0.22, 1, 0.36, 1] };
-    var optsLong = { duration: 0.75, easing: [0.22, 1, 0.36, 1] };
+    var ease   = [0.22, 1, 0.36, 1];
+    var fast   = { duration: 0.55, easing: ease };
+    var slow   = { duration: 0.75, easing: ease };
 
-    // Szekció-fejlécek: fade up
+    // Section headers
     document.querySelectorAll('.section-header').forEach(function (el) {
       el.style.opacity = '0';
-      inView(el, function () {
-        animate(el, fadeUp, opts);
-      }, { margin: '-80px 0px' });
+      inView(el, function () { animate(el, fadeUp, fast); }, { margin: '-80px 0px' });
     });
 
-    // Hero tartalom
-    var heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-      heroContent.style.opacity = '0';
-      inView(heroContent, function () {
-        animate(heroContent, fadeUp, optsLong);
-      }, { margin: '0px' });
+    // Hero content
+    var hc = document.querySelector('.hero-content');
+    if (hc) {
+      hc.style.opacity = '0';
+      inView(hc, function () { animate(hc, fadeUp, slow); }, { margin: '0px' });
     }
 
-    // Boardroom kártya
-    var boardroomCard = document.querySelector('.boardroom-card');
-    if (boardroomCard) {
-      boardroomCard.style.opacity = '0';
-      inView(boardroomCard, function () {
-        animate(boardroomCard, fadeUp, opts);
-      }, { margin: '-60px 0px' });
+    // Hero visual
+    var hv = document.querySelector('.hero-visual');
+    if (hv) {
+      hv.style.opacity = '0';
+      inView(hv, function () { animate(hv, { opacity: [0, 1], y: [24, 0] }, slow); }, { margin: '0px' });
     }
 
-    // Általános kártyák: staggerelt belépés
-    var cardGroups = [
-      '.steps-grid .step-card',
-      '.trust-grid .trust-card',
-      '.def-card',
-      '.check-card',
-    ];
-    cardGroups.forEach(function (selector) {
-      var cards = document.querySelectorAll(selector);
-      cards.forEach(function (card, i) {
-        card.style.opacity = '0';
-        inView(card, function () {
-          animate(card, fadeUp, Object.assign({}, opts, { delay: i * 0.08 }));
-        }, { margin: '-40px 0px' });
-      });
+    // Boardroom items (stagger)
+    document.querySelectorAll('.boardroom-item').forEach(function (el, i) {
+      el.style.opacity = '0';
+      inView(el, function () { animate(el, fadeUp, Object.assign({}, fast, { delay: i * 0.09 })); }, { margin: '-50px 0px' });
     });
 
-    // PreCheck gombok
-    var precheckBtns = document.querySelectorAll('.btn-precheck');
-    precheckBtns.forEach(function (btn, i) {
-      btn.style.opacity = '0';
-      inView(btn, function () {
-        animate(btn, fadeUp, Object.assign({}, opts, { delay: i * 0.1 }));
-      }, { margin: '-40px 0px' });
+    // Step cards (stagger)
+    document.querySelectorAll('.step-card').forEach(function (el, i) {
+      el.style.opacity = '0';
+      inView(el, function () { animate(el, fadeUp, Object.assign({}, fast, { delay: i * 0.09 })); }, { margin: '-40px 0px' });
     });
 
-    // News kártya
-    var newsCard = document.querySelector('.news-card');
-    if (newsCard) {
-      newsCard.style.opacity = '0';
-      inView(newsCard, function () {
-        animate(newsCard, fadeIn, optsLong);
-      }, { margin: '-60px 0px' });
+    // Trust cards (stagger)
+    document.querySelectorAll('.trust-card').forEach(function (el, i) {
+      el.style.opacity = '0';
+      inView(el, function () { animate(el, fadeUp, Object.assign({}, fast, { delay: i * 0.09 })); }, { margin: '-40px 0px' });
+    });
+
+    // Def cards (stagger)
+    document.querySelectorAll('.def-card').forEach(function (el, i) {
+      el.style.opacity = '0';
+      inView(el, function () { animate(el, fadeUp, Object.assign({}, fast, { delay: i * 0.07 })); }, { margin: '-40px 0px' });
+    });
+
+    // Check cards
+    document.querySelectorAll('.check-card').forEach(function (el, i) {
+      el.style.opacity = '0';
+      inView(el, function () { animate(el, fadeUp, Object.assign({}, fast, { delay: i * 0.1 })); }, { margin: '-40px 0px' });
+    });
+
+    // PreCheck buttons (stagger)
+    document.querySelectorAll('.btn-precheck').forEach(function (el, i) {
+      el.style.opacity = '0';
+      inView(el, function () { animate(el, fadeUp, Object.assign({}, fast, { delay: i * 0.11 })); }, { margin: '-40px 0px' });
+    });
+
+    // News card
+    var nc = document.querySelector('.news-card');
+    if (nc) {
+      nc.style.opacity = '0';
+      inView(nc, function () { animate(nc, fadeIn, slow); }, { margin: '-60px 0px' });
     }
 
-    // Impresszum blokkok
+    // Impressum blocks
     document.querySelectorAll('.impressum-block').forEach(function (el, i) {
       el.style.opacity = '0';
-      inView(el, function () {
-        animate(el, fadeUp, Object.assign({}, opts, { delay: i * 0.07 }));
-      }, { margin: '-40px 0px' });
+      inView(el, function () { animate(el, fadeUp, Object.assign({}, fast, { delay: i * 0.07 })); }, { margin: '-40px 0px' });
     });
 
-    // Future-proof idézetek
+    // Future quotes
     document.querySelectorAll('.future-quote').forEach(function (el, i) {
       el.style.opacity = '0';
-      inView(el, function () {
-        animate(el, fadeUp, Object.assign({}, opts, { delay: i * 0.12 }));
-      }, { margin: '-40px 0px' });
+      inView(el, function () { animate(el, fadeUp, Object.assign({}, fast, { delay: i * 0.13 })); }, { margin: '-40px 0px' });
     });
   })();
 </script>
@@ -1583,11 +1682,10 @@
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.setAttribute('lang', lang);
     localStorage.setItem('dct-lang', lang);
-
-    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
-    document.querySelectorAll('.btn-precheck').forEach(function(btn) {
+    document.querySelectorAll('.btn-precheck').forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-precheck-lang') === lang);
     });
   }
@@ -1598,5 +1696,6 @@
     switchLang((saved && valid.indexOf(saved) !== -1) ? saved : 'en');
   })();
 </script>
+
 </body>
 </html>

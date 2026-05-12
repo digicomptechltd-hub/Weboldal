@@ -6,7 +6,9 @@
       "PowerShell(schtasks --% /create /tn \"Weboldal_AutoCommit\" /tr \"powershell.exe -NonInteractive -ExecutionPolicy Bypass -File \\\\\"c:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Test1\\\\auto-commit.ps1\\\\\"\" /sc HOURLY /mo 1 /rl HIGHEST /f)",
       "PowerShell(schtasks --% /run /tn \"Weboldal_AutoCommit\")",
       "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"User\"\\); Set-Location \"c:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Test1\"; git status --short; git log --oneline -3)",
-      "PowerShell(schtasks --% /delete /tn \"Weboldal_AutoCommit\" /f)"
+      "PowerShell(schtasks --% /delete /tn \"Weboldal_AutoCommit\" /f)",
+      "Bash(curl -sI \"https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js\")",
+      "Bash(curl -s \"https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js\")"
     ]
   }
 }
