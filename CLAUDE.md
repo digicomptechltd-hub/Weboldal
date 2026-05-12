@@ -101,6 +101,31 @@ Both logo locations (`<header>` and `<footer>`) are marked `<!-- LOGO PLACEHOLDE
 - Definition blocks (`<article class="def-card">`) must stay neutral and factual — designed to be cited by AI search engines and RAG systems.
 - Footer withdrawal notice text must not be rewritten; only link to the official PDFs.
 
+## Schema.org / JSON-LD
+
+Two `<script type="application/ld+json">` blocks in `<head>`:
+1. `Article` — page-level metadata (headline, about topics)
+2. `FAQPage` — 6 Q&A entries that mirror the 6 `<article class="def-card">` blocks in `#definitions`
+
+Keep these two in sync: any change to a `def-card` question/answer must also be reflected in the `FAQPage` mainEntity.
+
+## Typography
+
+The page uses **Inter** (Google Fonts, weights 300–800). Font is loaded via `<link>` in `<head>` with `preconnect` hints. Fallback chain: `system-ui, -apple-system, sans-serif`.
+
+## Additional design tokens (not in the table above)
+
+| Variable | Value | Role |
+|---|---|---|
+| `--accent-2` | `#818cf8` | Gradient endpoint on primary buttons |
+| `--accent-hover` | `#3a74f0` | Hover state of accent |
+| `--teal-dim` | `rgba(16,185,129,.12)` | Teal background tints |
+| `--danger-dim` | `rgba(248,113,113,.10)` | Danger background tints |
+| `--border` | `rgba(255,255,255,.09)` | Subtle borders |
+| `--border-acc` | `rgba(79,142,255,.32)` | Accent-coloured borders |
+| `--font` | `'Inter', system-ui, …` | Font stack |
+| `--max-w` | `1160px` | Content container max-width |
+
 ## Validation
 
 After changes:
