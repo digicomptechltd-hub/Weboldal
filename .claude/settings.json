@@ -8,7 +8,22 @@
       "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\",\"User\"\\); Set-Location \"c:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Test1\"; git status --short; git log --oneline -3)",
       "PowerShell(schtasks --% /delete /tn \"Weboldal_AutoCommit\" /f)",
       "Bash(curl -sI \"https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js\")",
-      "Bash(curl -s \"https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js\")"
+      "Bash(curl -s \"https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js\")",
+      "Bash(Get-ChildItem \"c:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Weboldal Project\\\\slides\\\\\" | Select-Object Name, Length)",
+      "Bash(convert --version)",
+      "Bash(magick --version)",
+      "Bash(ffmpeg -version)",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "PowerShell(python --version)",
+      "PowerShell(magick --version)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "Bash(mkdir \"/c/Users/rluxu/Desktop/Claude Code/Social Media Project\" && echo \"OK\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\rluxu\\Desktop\\Claude Code"
     ]
   }
 }

@@ -7,24 +7,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **Digital Compliance Technology** — EU AI Act compliance readiness landing page.
 Single-file static site: everything lives in `index.html` (HTML + embedded CSS + embedded JS). No build step, no package manager, no dependencies. Open directly in a browser.
 
+**Live URL:** https://digicomptechltd-hub.github.io/Weboldal/
+
 ## Git & GitHub
 
-- **Remote:** `https://github.com/digicomptechltd-hub/Weboldal` (branch: `main`)
-- **Commit convention:** free-form; the auto-commit script uses `"Auto-mentés: YYYY-MM-DD HH:mm:ss"`
+- **Remote:** `https://github.com/digicomptechltd-hub/Weboldal` (branch: `main`, public repo)
 - **Auto-commit script:** `auto-commit.ps1` — commits only when there are changes, pushes to `origin main`, logs to `auto-commit.log`
 - **Scheduled task:** `Weboldal_AutoCommit` in Windows Task Scheduler — runs `auto-commit.ps1` every hour
+- Changes pushed to `main` appear on the live site within ~1 minute via GitHub Pages
 
 ### Manual push
 ```powershell
-# Run from project root
 git add .
 git commit -m "Leírás"
 git push
-```
-
-### Check auto-commit log
-```powershell
-Get-Content auto-commit.log -Tail 20
 ```
 
 ## Architecture
@@ -38,49 +34,69 @@ html[data-lang="en"] .lang-de,
 html[data-lang="en"] .lang-hu { display: none !important; }
 ```
 
-The JS function `switchLang(lang)` updates the attribute, syncs button/precheck active states, and persists to `localStorage` under the key `dct-lang`.
+`switchLang(lang)` updates the attribute, syncs button/precheck active states, and persists to `localStorage` under key `dct-lang`. Default language on first visit: `en`.
 
-Every translatable element carries one of three classes: `lang-en`, `lang-de`, `lang-hu`. Inline spans for short text; block `<div>` / `<p>` for longer content. **Never mix languages inside a single element.**
+Every translatable element carries one of three classes: `lang-en`, `lang-de`, `lang-hu`. Inline `<span>` for short text; block `<div>`/`<p>` for longer content. **Never mix languages inside a single element.**
+
+### Page sections (in order)
+
+`header` → `.lang-banners` → `#hero` → `#boardroom` → `#what-is` → `#how-it-works` → `#evidence` → `#precheck` → `#eu-context` → `#ai-act-news` → `#definitions` → `.img-strip` → `#future-proof` → `#trust` → `#impressum` → `footer`
+
+Key sections:
+- `#precheck` — three `.btn-precheck` anchors with `data-precheck-lang="en|de|hu"` pointing to Airtable. `switchLang()` also toggles `.active` on these.
+- `#definitions` — 6 `<article class="def-card">` blocks; each must stay in sync with the `FAQPage` JSON-LD in `<head>`.
+- `#evidence` — lapozható slide-show (`slides/evidence-01.png` … `evidence-12.png`). `.slider-wrapper` center-ezi a `.slider-viewport`-ot egy `.slider-spacer` segítségével (layout ugrás ellen). Zoom: `transform: scale(2)` a `.zoomed` class-szal, az `overflow:hidden` megmarad a viewport-on. JS: auto-play 4.5s, touch swipe, keyboard (←/→/Escape).
+- `.img-strip` — full-width editorial image divider after `#definitions`. Uses `img-justice.jpg`.
+
+### Evidence slider — fontos részletek
+
+- Képek: `slides/evidence-01.png` – `slides/evidence-12.png`
+- A `.slider-viewport` `overflow: hidden` marad — a zoom `transform: scale(2)` alapú, nem width-változtatás
+- A nyíl-gombok `e.stopPropagation()`-nal megakadályozzák a véletlenszerű zoom triggert
+- `slider-spacer` (invisible, `pointer-events:none`) tartja a layout magasságát zoomed állapotban
 
 ### CSS custom properties (design tokens)
 
-All colours, radii, and max-width are defined as CSS variables on `:root` at the top of `<style>`. Change visual style there only.
+Minden szín és méret a `<style>` blokk tetején lévő `:root`-ban van. Csak ott változtass.
 
 | Variable | Role |
 |---|---|
 | `--bg` / `--bg-alt` | Page and alternate-section backgrounds |
-| `--card` / `--card-hover` | Card backgrounds |
-| `--accent` | Primary blue (buttons, links, left borders) |
-| `--teal` | Positive / checkmark accent |
-| `--danger` | Negative / cross accent |
+| `--card` | Card backgrounds |
+| `--accent` / `--accent-2` / `--accent-hover` | Primary blue (#4f8eff), gradient end, hover |
+| `--teal` / `--danger` | Positive / negative accents |
 | `--text` / `--text-muted` / `--text-dim` | Text hierarchy |
+| `--border` / `--border-acc` | Subtle / accent borders |
+| `--max-w` | `1160px` content container |
 
-### Page sections (in order)
-
-`header` → `.lang-banners` → `#hero` → `#boardroom` → `#what-is` → `#how-it-works` → `#precheck` → `#eu-context` → `#ai-act-news` → `#definitions` → `.img-strip` (Lady Justice) → `#future-proof` → `#trust` → `footer`
-
-- `.lang-banners` — three full-width banner images below the header, one per language (`banner-en.jpg`, `banner-de.jpg`, `banner-hu.jpg`). Standard language-visibility CSS handles show/hide.
-- `#hero` — two-column grid (`.hero-layout`): text left (`.hero-content`), EU flags photo right (`.hero-visual`). Image column hidden on screens ≤820px.
-- `#ai-act-news` — static news card (`.news-card`) linking to `artificialintelligenceact.eu`. Entire card is a single `<a>` tag. Cover image loaded from the external site; `onerror` fallback applies a dark gradient if the image fails. Content is static — not dynamically fetched.
-- `.img-strip` — full-width editorial image divider after `#definitions`. Contains `.img-strip-photo` (darkened/desaturated via CSS `filter`), `.img-strip-overlay` (gradient fade), `.img-strip-caption`. Currently uses `img-justice.jpg`.
-- `#definitions` — 6 `<article class="def-card">` blocks, each maps to one `FAQPage` `mainEntity` entry in the JSON-LD.
-- `#precheck` — three `.btn-precheck` anchors with `data-precheck-lang="en|de|hu"` pointing to language-specific Airtable URLs. `switchLang()` also toggles `.active` on these.
+Brand colors (hard-coded in cover badges, do not change):
+- `#2e7d32` — Transparency (green)
+- `#C04000` — PreCheck (copper)
+- `#B00020` — HRAI (red)
+- `#003366` — Navy (primary brand)
 
 ### Image assets
 
-| File | Used in | Notes |
-|---|---|---|
-| `banner-en.jpg` | `.lang-banners` | 4500×1500px PreCheck banner, EN |
-| `banner-de.jpg` | `.lang-banners` | 4500×1500px PreCheck banner, DE |
-| `banner-hu.jpg` | `.lang-banners` | 4500×1500px PreCheck banner, HU |
-| `img-eu-flags.jpg` | `#hero .hero-visual` | EU flags, Brussels; darkened via CSS |
-| `img-justice.jpg` | `.img-strip` after `#definitions` | Lady Justice + globe; darkened via CSS |
+| File | Used in |
+|---|---|
+| `banner-en/de/hu.jpg` | `.lang-banners` (4500×1500px, language-specific) |
+| `img-eu-flags.jpg` | `#hero .hero-visual` |
+| `img-justice.jpg` | `.img-strip` after `#definitions` |
+| `slides/evidence-01..12.png` | `#evidence` slider |
 
-All darkening/desaturation is done with CSS `filter` — do not pre-process the source files.
+All darkening/desaturation via CSS `filter` — do not pre-process source files.
+
+### Schema.org / JSON-LD
+
+Two `<script type="application/ld+json">` blocks in `<head>`:
+1. `Article` — page-level metadata
+2. `FAQPage` — 6 Q&A entries mirroring the 6 `#definitions` `.def-card` blocks
+
+**Keep in sync:** any change to a `def-card` must be reflected in the `FAQPage` mainEntity.
 
 ### Logo placeholder
 
-Both logo locations (`<header>` and `<footer>`) are marked `<!-- LOGO PLACEHOLDER -->`. Replace the text node with an `<img>` tag when the asset is available.
+Both logo locations (`<header>` and `<footer>`) are marked `<!-- LOGO PLACEHOLDER -->`. Replace the text node with an `<img>` when the asset is available.
 
 ## Key external URLs (do not change without owner approval)
 
@@ -89,42 +105,18 @@ Both logo locations (`<header>` and `<footer>`) are marked `<!-- LOGO PLACEHOLDE
 | Airtable EN | `https://airtable.com/appXjjPrAfvyGqddh/shrbgGYcyiWuQ1r8x?prefill_requested_language=en` |
 | Airtable DE | `https://airtable.com/appXjjPrAfvyGqddh/shr2Tf6IvbtZRazTL?prefill_requested_language=de` |
 | Airtable HU | `https://airtable.com/appXjjPrAfvyGqddh/shr1rOwad4u4epAcN?prefill_requested_language=hu` |
-| Legal PDF EN | `https://drive.google.com/file/d/1zkvw8PBKHjWmSpkWvIjqP7hi2ZB4IRH2/view?usp=drive_link` |
-| Legal PDF DE | `https://drive.google.com/file/d/1JW2sMNj9b9WBk51YZoS-C66fjO78WBtg/view?usp=drive_link` |
-| Legal PDF HU | `https://drive.google.com/file/d/1OTjkaDV0rnZhioubYdmCcSTJ4LpkJwKa/view?usp=drive_link` |
+| Legal PDF EN (v3.2) | `https://drive.google.com/file/d/1EmXnpqdn8SsVk5ndJNZNxRrQ0noh2858/view?usp=drive_link` |
+| Legal PDF DE (v3.2) | `https://drive.google.com/file/d/1_oRRAcXXMbsS-jGTmi8I2Tl4U12fu7fB/view?usp=drive_link` |
+| Legal PDF HU (v3.2) | `https://drive.google.com/file/d/17T3yKxBx7C1_jEciNbAHrDnYuW_Ux-NP/view?usp=drive_link` |
 | EUR-Lex | `https://eur-lex.europa.eu/eli/reg/2024/1689/oj` |
 
 ## Content rules (non-negotiable)
 
 - **Tone:** calm, executive, non-alarmist. No fear-based language, no hype.
 - **Positioning:** management decision-support — NOT legal advice, NOT certification, NOT an audit, NOT a compliance guarantee.
-- Definition blocks (`<article class="def-card">`) must stay neutral and factual — designed to be cited by AI search engines and RAG systems.
-- Footer withdrawal notice text must not be rewritten; only link to the official PDFs.
-
-## Schema.org / JSON-LD
-
-Two `<script type="application/ld+json">` blocks in `<head>`:
-1. `Article` — page-level metadata (headline, about topics)
-2. `FAQPage` — 6 Q&A entries that mirror the 6 `<article class="def-card">` blocks in `#definitions`
-
-Keep these two in sync: any change to a `def-card` question/answer must also be reflected in the `FAQPage` mainEntity.
-
-## Typography
-
-The page uses **Inter** (Google Fonts, weights 300–800). Font is loaded via `<link>` in `<head>` with `preconnect` hints. Fallback chain: `system-ui, -apple-system, sans-serif`.
-
-## Additional design tokens (not in the table above)
-
-| Variable | Value | Role |
-|---|---|---|
-| `--accent-2` | `#818cf8` | Gradient endpoint on primary buttons |
-| `--accent-hover` | `#3a74f0` | Hover state of accent |
-| `--teal-dim` | `rgba(16,185,129,.12)` | Teal background tints |
-| `--danger-dim` | `rgba(248,113,113,.10)` | Danger background tints |
-| `--border` | `rgba(255,255,255,.09)` | Subtle borders |
-| `--border-acc` | `rgba(79,142,255,.32)` | Accent-coloured borders |
-| `--font` | `'Inter', system-ui, …` | Font stack |
-| `--max-w` | `1160px` | Content container max-width |
+- `def-card` blocks must stay neutral and factual — designed to be cited by AI search engines and RAG systems.
+- Footer withdrawal notice text must not be rewritten; version must match current legal PDF version (currently **v3.2**).
+- When updating legal PDF links, update: the `<a href>` for each language AND the version string in all 3 footer notice `<span>` elements.
 
 ## Validation
 
