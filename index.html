@@ -622,6 +622,118 @@
     }
     @media (max-width: 620px) { .img-strip { height: 180px; } }
 
+    /* ══════════════════════════════════════════════════ EVIDENCE SLIDER */
+    #evidence { background: var(--bg); padding: 80px 0 88px; }
+    .evidence-header { text-align: center; margin-bottom: 48px; }
+    .evidence-header .section-label { display: block; margin-bottom: 12px; }
+    .evidence-header .section-title { margin: 0 auto 14px; }
+    .evidence-header p { font-size: .9375rem; color: var(--text-muted); max-width: 560px; margin: 0 auto; }
+
+    /* wrapper: flex-center, fixed height = zoomed height so page doesn't jump */
+    .slider-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    /* spacer keeps the layout height = zoomed box so content below doesn't jump */
+    .slider-spacer {
+      width: 410px;
+      aspect-ratio: 1 / 1.38;
+      flex-shrink: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    /* viewport sits on top of the spacer via negative margin */
+    .slider-viewport {
+      position: absolute;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: 0 24px 64px rgba(0,0,0,.55);
+      background: #0a0a12;
+      width: 410px;
+      aspect-ratio: 1 / 1.38;
+      transform-origin: top center;
+      transition: transform .38s cubic-bezier(.22,1,.36,1), box-shadow .38s;
+      cursor: zoom-in;
+      z-index: 2;
+    }
+    .slider-wrapper { position: relative; }
+    .slider-viewport.zoomed {
+      transform: scale(2);
+      box-shadow: 0 48px 120px rgba(0,0,0,.75);
+      z-index: 20;
+      cursor: zoom-out;
+    }
+
+    .slider-track {
+      display: flex;
+      height: 100%;
+      transition: transform .45s cubic-bezier(.22,1,.36,1);
+      will-change: transform;
+    }
+    .slide {
+      flex: 0 0 100%;
+      height: 100%;
+    }
+    .slide img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .slider-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(10,10,24,.72); backdrop-filter: blur(10px);
+      border: 1px solid var(--border); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .2s, border-color .2s, transform .2s;
+      z-index: 10;
+    }
+    .slider-btn:hover {
+      background: rgba(79,142,255,.25);
+      border-color: var(--border-acc);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .slider-btn.prev { left: 14px; }
+    .slider-btn.next { right: 14px; }
+
+    .slider-dots {
+      display: flex; justify-content: center; gap: 8px; margin-top: 22px;
+    }
+    .slider-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,.18); border: none; padding: 0; cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .slider-dot.active {
+      background: var(--accent);
+      transform: scale(1.35);
+    }
+
+    .slider-counter {
+      text-align: center; margin-top: 14px;
+      font-size: .8rem; color: var(--text-dim); letter-spacing: .06em;
+    }
+    .slider-hint {
+      text-align: center; margin-top: 10px;
+      font-size: .78rem; color: var(--text-dim); font-style: italic;
+    }
+
+    @media (max-width: 900px) {
+      .slider-viewport,
+      .slider-spacer { width: min(410px, 80vw); }
+      .slider-viewport.zoomed { transform: scale(1.8); }
+    }
+    @media (max-width: 540px) {
+      .slider-viewport.zoomed { transform: scale(1.3); }
+      .slider-btn { width: 36px; height: 36px; }
+      .slider-btn.prev { left: 8px; }
+      .slider-btn.next { right: 8px; }
+    }
+
     /* ══════════════════════════════════════════════════ RESPONSIVE */
     @media (max-width: 960px) {
       .steps-grid { grid-template-columns: 1fr 1fr; }
@@ -895,6 +1007,64 @@
         </p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ EVIDENCE SLIDER -->
+<section id="evidence">
+  <div class="container">
+    <div class="evidence-header">
+      <span class="section-label">
+        <span class="lang-en">Report Preview</span>
+        <span class="lang-de">Berichtvorschau</span>
+        <span class="lang-hu">Riport-előnézet</span>
+      </span>
+      <h2 class="section-title">
+        <span class="lang-en">Inside a Real Compliance Report</span>
+        <span class="lang-de">Einblick in einen echten Compliance-Bericht</span>
+        <span class="lang-hu">Így néz ki egy valódi compliance riport</span>
+      </h2>
+      <p>
+        <span class="lang-en">Actual pages from our AI Act compliance reports — score tables, Annex III analysis, roadmaps, and evidence packs.</span>
+        <span class="lang-de">Echte Seiten aus unseren KI-Act-Compliance-Berichten — Score-Tabellen, Anhang-III-Analyse, Roadmaps und Nachweispakete.</span>
+        <span class="lang-hu">Valódi oldalak az AI Act compliance riportjainkból — pontszám-táblázatok, III. melléklet elemzés, ütemtervek és bizonyítékcsomag.</span>
+      </p>
+    </div>
+
+    <div class="slider-wrapper">
+      <div class="slider-spacer" aria-hidden="true"></div>
+      <div class="slider-viewport" id="evidenceSlider" aria-label="Evidence report pages">
+        <div class="slider-track" id="sliderTrack">
+          <div class="slide"><img src="slides/evidence-01.png" alt="Report page 1" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-02.png" alt="Report page 2" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-03.png" alt="Report page 3" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-04.png" alt="Report page 4" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-05.png" alt="Report page 5" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-06.png" alt="Report page 6" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-07.png" alt="Report page 7" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-08.png" alt="Report page 8" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-09.png" alt="Report page 9" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-10.png" alt="Report page 10" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-11.png" alt="Report page 11" loading="lazy" draggable="false"></div>
+          <div class="slide"><img src="slides/evidence-12.png" alt="Report page 12" loading="lazy" draggable="false"></div>
+        </div>
+
+        <button class="slider-btn prev" id="sliderPrev" aria-label="Previous slide">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 14l-5-5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="slider-btn next" id="sliderNext" aria-label="Next slide">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Slide navigation"></div>
+    <p class="slider-counter"><span id="sliderCurrent">1</span> / <span id="sliderTotal">12</span></p>
+    <p class="slider-hint">
+      <span class="lang-en">Click image to zoom · click again to shrink</span>
+      <span class="lang-de">Bild anklicken zum Vergrößern · nochmals anklicken zum Verkleinern</span>
+      <span class="lang-hu">Kattints a képre a nagyításhoz · még egyszer a visszakicsinyítéshez</span>
+    </p>
   </div>
 </section>
 
@@ -1296,6 +1466,8 @@
   </div>
 </section>
 
+<!-- ══════════════════════════════════════════════ EVIDENCE SLIDER -->
+
 </main>
 
 <!-- ══════════════════════════════════════════════ IMPRESSUM -->
@@ -1597,6 +1769,66 @@
     var valid = ['en', 'de', 'hu'];
     switchLang((saved && valid.indexOf(saved) !== -1) ? saved : 'en');
   })();
+</script>
+
+<script>
+(function () {
+  var total    = 12;
+  var current  = 0;
+  var viewport = document.getElementById('evidenceSlider');
+  var track    = document.getElementById('sliderTrack');
+  var dotsEl   = document.getElementById('sliderDots');
+  var currEl   = document.getElementById('sliderCurrent');
+  var autoId;
+
+  // build dots
+  for (var i = 0; i < total; i++) {
+    var d = document.createElement('button');
+    d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('role', 'tab');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.dataset.idx = i;
+    d.addEventListener('click', function () { goTo(+this.dataset.idx); resetAuto(); });
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    current = (n + total) % total;
+    track.style.transform = 'translateX(-' + current * 100 + '%)';
+    dotsEl.querySelectorAll('.slider-dot').forEach(function (d, i) {
+      d.classList.toggle('active', i === current);
+    });
+    currEl.textContent = current + 1;
+  }
+
+  document.getElementById('sliderPrev').addEventListener('click', function (e) { e.stopPropagation(); goTo(current - 1); resetAuto(); });
+  document.getElementById('sliderNext').addEventListener('click', function (e) { e.stopPropagation(); goTo(current + 1); resetAuto(); });
+
+  // zoom toggle on viewport click (buttons use stopPropagation so they won't trigger this)
+  viewport.addEventListener('click', function () {
+    viewport.classList.toggle('zoomed');
+  });
+
+  // keyboard
+  viewport.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft')  { goTo(current - 1); resetAuto(); }
+    if (e.key === 'ArrowRight') { goTo(current + 1); resetAuto(); }
+    if (e.key === 'Escape')     { viewport.classList.remove('zoomed'); }
+  });
+
+  // touch swipe
+  var touchStartX = 0;
+  track.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { goTo(current + (dx < 0 ? 1 : -1)); resetAuto(); }
+  }, { passive: true });
+
+  function startAuto() { autoId = setInterval(function () { goTo(current + 1); }, 4500); }
+  function resetAuto()  { clearInterval(autoId); startAuto(); }
+
+  startAuto();
+})();
 </script>
 </body>
 </html>
