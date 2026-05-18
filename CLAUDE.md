@@ -105,9 +105,9 @@ Both logo locations (`<header>` and `<footer>`) are marked `<!-- LOGO PLACEHOLDE
 | Airtable EN | `https://airtable.com/appXjjPrAfvyGqddh/shrbgGYcyiWuQ1r8x?prefill_requested_language=en` |
 | Airtable DE | `https://airtable.com/appXjjPrAfvyGqddh/shr2Tf6IvbtZRazTL?prefill_requested_language=de` |
 | Airtable HU | `https://airtable.com/appXjjPrAfvyGqddh/shr1rOwad4u4epAcN?prefill_requested_language=hu` |
-| Legal PDF EN (v3.2) | `https://drive.google.com/file/d/1EmXnpqdn8SsVk5ndJNZNxRrQ0noh2858/view?usp=drive_link` |
-| Legal PDF DE (v3.2) | `https://drive.google.com/file/d/1_oRRAcXXMbsS-jGTmi8I2Tl4U12fu7fB/view?usp=drive_link` |
-| Legal PDF HU (v3.2) | `https://drive.google.com/file/d/17T3yKxBx7C1_jEciNbAHrDnYuW_Ux-NP/view?usp=drive_link` |
+| Legal PDF EN (v3.2) | `https://drive.google.com/file/d/1OJ9vmQGSAaqbXBKWzL3dogbD93G-SlY_/view?usp=sharing` |
+| Legal PDF DE (v3.2) | `https://drive.google.com/file/d/12r67NrbDl5kw4WzMBCmOtlBehdm4zbUI/view?usp=sharing` |
+| Legal PDF HU (v3.2) | `https://drive.google.com/file/d/194_8jMDGL1O7LtsRS4UcH7NRSqEbWBwl/view?usp=sharing` |
 | EUR-Lex | `https://eur-lex.europa.eu/eli/reg/2024/1689/oj` |
 
 ## Content rules (non-negotiable)

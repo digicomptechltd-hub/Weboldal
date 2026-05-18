@@ -20,7 +20,8 @@
       "Bash(gh auth *)",
       "Bash(gh repo *)",
       "Bash(gh api *)",
-      "Bash(mkdir \"/c/Users/rluxu/Desktop/Claude Code/Social Media Project\" && echo \"OK\")"
+      "Bash(mkdir \"/c/Users/rluxu/Desktop/Claude Code/Social Media Project\" && echo \"OK\")",
+      "Bash(curl -s \"https://digicomptechltd-hub.github.io/Weboldal/\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\rluxu\\Desktop\\Claude Code"
