@@ -734,6 +734,61 @@
       .slider-btn.next { right: 8px; }
     }
 
+    /* ══════════════════════════════════════════════════ INSIGHTS ACCORDION */
+    #insights { background: var(--bg-alt); padding: 80px 0 88px; }
+    #insights .section-header { text-align: center; margin-bottom: 48px; }
+    #insights .section-header p { font-size: .9375rem; color: var(--text-muted); max-width: 560px; margin: 0 auto; }
+    .insights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    .week-card {
+      background: var(--card); border-radius: var(--radius); overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.09);
+    }
+    .week-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 26px; cursor: pointer; user-select: none;
+      transition: background .2s; gap: 12px;
+    }
+    .week-header:hover { background: rgba(255,255,255,.04); }
+    .week-label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 4px;
+    }
+    .week-header h3 { font-size: .9375rem; font-weight: 700; color: var(--text); margin: 0; }
+    .week-chevron {
+      flex-shrink: 0; color: var(--accent);
+      transition: transform .32s cubic-bezier(.22,1,.36,1);
+    }
+    .week-card.open .week-chevron { transform: rotate(180deg); }
+
+    .week-body { display: none; border-top: 1px solid var(--border); }
+    .week-card.open .week-body { display: block; }
+
+    .post-item { border-bottom: 1px solid var(--border); }
+    .post-item:last-child { border-bottom: none; }
+    .post-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 16px 26px; cursor: pointer; gap: 12px;
+      transition: background .2s;
+    }
+    .post-header:hover { background: rgba(255,255,255,.03); }
+    .post-num { font-size: .7rem; color: var(--text-dim); flex-shrink: 0; margin-top: 2px; }
+    .post-title { font-size: .875rem; font-weight: 600; color: var(--text); line-height: 1.4; flex: 1; }
+    .post-chevron {
+      flex-shrink: 0; color: var(--text-dim);
+      transition: transform .32s cubic-bezier(.22,1,.36,1);
+    }
+    .post-item.open .post-chevron { transform: rotate(180deg); }
+
+    .post-body { display: none; padding: 4px 26px 22px 26px; }
+    .post-item.open .post-body { display: block; }
+    .post-body p {
+      font-size: .855rem; line-height: 1.82; color: var(--text-muted);
+      white-space: pre-line;
+    }
+
+    @media (max-width: 760px) { .insights-grid { grid-template-columns: 1fr; } }
+
     /* ══════════════════════════════════════════════════ RESPONSIVE */
     @media (max-width: 960px) {
       .steps-grid { grid-template-columns: 1fr 1fr; }
@@ -1466,6 +1521,516 @@
   </div>
 </section>
 
+<!-- ══════════════════════════════════════════════ INSIGHTS -->
+<section id="insights" class="lang-en">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">AI Act Readiness Series</span>
+      <h2 class="section-title">16 Expert Insights on AI Act Compliance</h2>
+      <p>Real stories from organisations navigating EU AI Act readiness — structured thinking, proportional responses, decision-ready output.</p>
+    </div>
+
+    <div class="insights-grid">
+
+      <!-- WEEK 1 -->
+      <div class="week-card" id="week1">
+        <div class="week-header" onclick="toggleWeek('week1')">
+          <div>
+            <div class="week-label">Week 1</div>
+            <h3>The Problem</h3>
+          </div>
+          <svg class="week-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="week-body">
+
+          <div class="post-item" id="post1">
+            <div class="post-header" onclick="togglePost('post1')">
+              <span class="post-num">1/16</span>
+              <span class="post-title">The meeting that cost three months</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>Laura walked into the meeting to approve a pilot.
+She walked out with a compliance task list and a three-month delay.
+The pilot never changed. The meeting did.
+
+Laura is VP of Operations at a mid-sized logistics company. She'd been building an AI tool to help her dispatch team prioritise routes — nothing exotic, no sensitive data, no automated decisions. A human dispatcher reviewed every output before acting.
+
+She booked a 30-minute steering meeting to get sign-off and move to pilot.
+
+Ninety minutes later, she walked out with no sign-off and a new action list: legal review, DPIA scoping, "high-risk assessment," and a follow-up meeting in three weeks.
+
+Nobody in that room was wrong. Legal was doing its job. The risk team was being responsible. Leadership wanted certainty before approving.
+
+But nobody had asked the four questions that would have resolved everything in ten minutes:
+What is the AI actually doing? (Ranking routes for a human dispatcher to review.)
+Does it make decisions or support them? (Support — the human decides.)
+Who is affected and how? (Internal team, no external impact.)
+What happens if it's wrong? (A dispatcher re-routes — recoverable, low-stakes.)
+
+Without those answers, the meeting had no anchor. So it escalated.
+
+This is how the EU AI Act costs organisations months — not through the law itself, but through the absence of a routing step before the compliance conversation starts.
+
+The fix takes about twelve questions and produces a score. From the score, you route: Transparency, PreCheck, or HRAI. Proportional to the actual risk — not the imagined worst case.
+
+Not legal advice. Not audit. Decision support.</p></div>
+          </div>
+
+          <div class="post-item" id="post2">
+            <div class="post-header" onclick="togglePost('post2')">
+              <span class="post-num">2/16</span>
+              <span class="post-title">One email, three weeks, €12,000</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>One email to Legal cost this team three weeks.
+The AI wasn't even high-risk.
+
+Marcus is Head of Product at a fintech scale-up. His team was shipping fast. One sprint, they added an AI feature — a model that flagged unusual account activity for a human compliance officer to review. The human reviewed every flag. No automated action. No customer-facing decision.
+
+Before pushing to production, Marcus sent one line to Legal: "Heads up — we're shipping an AI feature next sprint. Worth flagging for AI Act purposes."
+
+Responsible. Reasonable. The kind of thing you're supposed to do.
+
+Three weeks later, the sprint was still on hold. Legal had escalated to external advisers. External advisers had scoped a full EU AI Act high-risk assessment. The assessment would take four to six weeks and cost €12,000.
+
+When Marcus finally got on a call to review the situation, the classification took about fifteen minutes.
+
+The model flagged anomalies. A human reviewed every flag. No automated decisions. No direct customer impact. No Annex III trigger. Score: 14/60. Route: Transparency — baseline disclosure obligations, manageable internally.
+
+The €12,000 assessment was never needed. The three-week hold wasn't either.
+
+The problem wasn't that Legal was wrong. It was that "high-risk" became the assumed starting label — not the output of a structured assessment.
+
+In EU AI Act terms, high-risk classification requires intended purpose, decision impact, affected persons, oversight model, and Annex III signal review. Without those inputs, classification is a guess. And organisations are very conservative when they're guessing.</p></div>
+          </div>
+
+          <div class="post-item" id="post3">
+            <div class="post-header" onclick="togglePost('post3')">
+              <span class="post-num">3/16</span>
+              <span class="post-title">Two traps: freeze vs. over-compliance</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>Two companies. Same AI Act problem.
+One froze. One over-complied. Both lost six months.
+Neither had to.
+
+In the same week last autumn, I spoke with two different organisations facing the same situation: an AI tool approaching production, an upcoming EU AI Act deadline, and no clear path forward.
+
+Company A froze. Their legal team said "we can't clear this until we know the risk classification." Their product team said "we can't classify it until Legal tells us what to look for." The project sat in that loop for six months.
+
+Company B over-complied. A well-meaning Head of Compliance launched a full governance programme — external advisers, documentation sprints, weekly steering committees. Three months in, the AI tool's scope had been reduced three times to avoid anticipated obligations. The programme cost more than the AI project itself.
+
+What both companies were missing was the same thing: a routing step that could answer, within a structured 12-question assessment, where the use case actually sat on the risk spectrum.
+
+Company A's AI tool scored 9/60 — Transparency route. No freeze needed.
+Company B's AI tool scored 31/60 — PreCheck route. Targeted clarification, not a full governance programme.
+
+Neither needed what they did. Both needed what they didn't have: a proportional starting point derived from actual signals, not from assumption.
+
+That's what the EU AI Act's risk-based approach is designed to produce. Proportionality isn't a loophole — it's the design principle.
+
+Both traps — freeze and over-compliance — have the same fix: a routing step that takes 3 minutes and costs a fraction of what either trap does.</p></div>
+          </div>
+
+          <div class="post-item" id="post4">
+            <div class="post-header" onclick="togglePost('post4')">
+              <span class="post-num">4/16</span>
+              <span class="post-title">"What do you need me to decide?"</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>She sat through a 45-minute compliance presentation.
+Then asked one question.
+The room went quiet.
+
+The CEO of a 220-person manufacturing company had asked her compliance manager to present the AI Act readiness status. He'd prepared well — forty-five minutes of regulatory context, risk categories, control frameworks, reference legislation.
+
+She listened. She asked one question at the end.
+"So — what do you need me to decide?"
+
+The room went quiet. Not because the question was unfair. Because the presentation hadn't been built to answer it.
+
+There was no decision on the table. No options with trade-offs. No recommended next step with an owner and a deadline. No "if we proceed, here's what needs to happen; if we don't, here's the cost."
+
+The presentation was correct. It just wasn't actionable. And at leadership level, correct and actionable are not the same thing.
+
+A decision-ready AI Act output answers three questions:
+(1) Decision — approve, pause, redesign, or escalate — with a clear recommendation.
+(2) Delegation — who owns what, with a deliverable and a deadline.
+(3) Documentation — what evidence is needed, when it's needed, and who creates it.
+
+When those three things are present, the CEO can act in ten minutes. Without them, she reschedules.
+
+The answer to "what do you need me to decide?" is the output of a structured routing assessment.</p></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- WEEK 2 -->
+      <div class="week-card" id="week2">
+        <div class="week-header" onclick="toggleWeek('week2')">
+          <div>
+            <div class="week-label">Week 2</div>
+            <h3>The Market</h3>
+          </div>
+          <svg class="week-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="week-body">
+
+          <div class="post-item" id="post5">
+            <div class="post-header" onclick="togglePost('post5')">
+              <span class="post-num">5/16</span>
+              <span class="post-title">€18,000, 47 pages, nobody knew what to do</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>€18,000. Six weeks. A 47-page report.
+And on Monday morning, nobody knew what to do.
+
+The General Counsel at a 400-person retail chain made what seemed like the right call. The EU AI Act was coming. They had three AI systems in production. She hired a respected specialist firm to run a full compliance review.
+
+Six weeks and €18,000 later, she had a 47-page report. It was thorough. Legally accurate. Well-referenced.
+
+She sent it to the CEO. He replied: "What should we do first?"
+She sent it to the Head of IT. He replied: "Which parts are for us?"
+She sent it to the product team. They didn't reply.
+
+The report had no decision section. No task assignments. No owner names. No timelines.
+
+Six months later, two of the three AI systems were still running without any of the recommended changes implemented. Not because anyone was negligent. Because the report told them what the situation was, not what to do about it.
+
+This is the structural failure of the traditional compliance consulting model. The deliverable is a document. What organisations actually need is a decision, a delegation, and a documentation baseline — structured for three different audiences at once.</p></div>
+          </div>
+
+          <div class="post-item" id="post6">
+            <div class="post-header" onclick="togglePost('post6')">
+              <span class="post-num">6/16</span>
+              <span class="post-title">"That's for companies ten times our size"</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>The best AI compliance platforms cost €80,000 a year, require six months to implement, and need a dedicated IT team.
+They're built for companies that don't have your problem.
+
+Sandra is CTO at a 180-person logistics tech company. Her team had built two AI tools in the past year, both approaching production. She needed to understand where they sat under the EU AI Act before going live.
+
+A colleague recommended one of the major enterprise compliance platforms. She booked a demo.
+
+The platform was impressive. Real-time monitoring, automated documentation pipelines, multi-system governance dashboards. The sales engineer walked her through the implementation timeline: six months minimum, dedicated IT resource required, annual contract starting at €80,000.
+
+Sandra thanked him, closed her laptop, and said to her Head of Product: "That's for companies ten times our size."
+
+She was right. The enterprise AI compliance market is built for organisations with dedicated GRC teams, multi-year implementation budgets, and compliance functions that already have the infrastructure to absorb a six-month onboarding.
+
+The other end of the spectrum — a freelance consultant or a boutique legal firm — costs €8,000 to €50,000, takes six to ten weeks, and delivers a report that is legally thorough and operationally silent.
+
+Between those two options, there is an empty gap. The gap where most SMEs and mid-market organisations actually live.
+
+The gap Sandra identified now has a product in it.</p></div>
+          </div>
+
+          <div class="post-item" id="post7">
+            <div class="post-header" onclick="togglePost('post7')">
+              <span class="post-num">7/16</span>
+              <span class="post-title">"Which part should I action?"</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>He spent six weeks building the most thorough AI governance documentation his company had ever produced.
+On the day he presented it, someone asked: "Which part should I action?"
+He didn't have an answer.
+
+Daniel is a Compliance Manager at a 250-person professional services firm. When his company needed to address EU AI Act requirements for two internal AI tools, he built the most complete governance documentation his organisation had ever produced. Six weeks. Sixty-one pages. Impeccable.
+
+On the day he presented it to the steering committee, the Head of Product raised her hand.
+"Which part should I action?"
+
+The document covered everything the AI tools needed to have documented. But it had been built as a compliance artefact — for an audit, for a regulator, for a legal file. Not as a management tool.
+
+The problem wasn't the quality of Daniel's work. The problem was the single-audience design.
+
+A functioning AI governance output needs three things simultaneously:
+→ An executive section built for decision-making
+→ An operational section built for task assignment
+→ A legal background built for the file and for counsel
+
+These three sections are not the same document written three times. They are three different outputs, written for three different readers, derived from the same underlying assessment.</p></div>
+          </div>
+
+          <div class="post-item" id="post8">
+            <div class="post-header" onclick="togglePost('post8')">
+              <span class="post-num">8/16</span>
+              <span class="post-title">I built what didn't exist</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>For 18 months, I looked for a fast, affordable, immediately actionable AI Act compliance assessment.
+It didn't exist. So I built it.
+
+When I started working on EU AI Act compliance support for SMEs and mid-market organisations, I kept running into the same problem.
+
+The options were:
+Option A — Consulting firm: €8,000–50,000, six to ten weeks, a document built for legal accuracy and not for operational action.
+Option B — Enterprise platform: €15,000–120,000 per year, six-month implementation, requires a GRC team that most organisations under 500 people don't have.
+Option C — DIY: A spreadsheet, some research, and a lot of uncertainty.
+
+None of these options work for a 200-person company with a real compliance deadline, a Head of IT who has two weeks to make a decision, and a budget that doesn't include a multi-month consulting engagement.
+
+So I asked a different question: what if the expert service could be productised? What if the 12-question routing intake, the risk scoring, the Annex III pre-screening, and the three-audience report could be automated — and delivered in minutes instead of weeks?
+
+That question became the AI Compliance Engine.
+
+Three minutes to complete the intake. A score from 0 to 60. A routing classification — Transparency, PreCheck, or HRAI. And a 26-page, personalised compliance report — automatically generated, immediately delegable, built for three audiences at once.
+
+Not legal advice. A productised expert service — built for organisations the market forgot to serve.</p></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- WEEK 3 -->
+      <div class="week-card" id="week3">
+        <div class="week-header" onclick="toggleWeek('week3')">
+          <div>
+            <div class="week-label">Week 3</div>
+            <h3>The Method</h3>
+          </div>
+          <svg class="week-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="week-body">
+
+          <div class="post-item" id="post9">
+            <div class="post-header" onclick="togglePost('post9')">
+              <span class="post-num">9/16</span>
+              <span class="post-title">What 12 questions actually measure</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>"You keep saying '12 questions' like that's meaningful. What are they actually measuring?"
+
+A fair challenge. Here's the honest answer.
+
+The 12 dimensions aren't measuring whether you have documents. They're measuring signal density — how many indicators of genuine compliance risk are present in your specific use case.
+
+Here's what each dimension covers:
+1. Personal data processing — does the AI touch personal data?
+2. Special category data — health, biometric, or financial data in input or output?
+3. Automated decision-making — does the AI decide, or does a human decide informed by the AI?
+4. Impact on user rights — can the output affect access to services, employment, education, or financial products?
+5. Life-situation decisions — does the output affect someone's material circumstances directly?
+6. Error consequences — what happens when the model is wrong?
+7. Human oversight need — is there a defined human review point?
+8. Data quality dependency — does reliability depend on variable input data quality?
+9. Continuous monitoring need — does the risk profile change over time?
+10. Behaviour influence — does the AI influence user decisions in ways that create accountability?
+11. Logging and auditability — can decisions and outputs be reconstructed and reviewed?
+12. Regulatory and compliance risk — are there sector-specific obligations that add to the baseline?
+
+Each dimension is scored. The combination produces a 0–60 total. The total — combined with critical flags — determines the routing: Transparency, PreCheck, or HRAI.
+
+It's not a checklist. It's a signal map.</p></div>
+          </div>
+
+          <div class="post-item" id="post10">
+            <div class="post-header" onclick="togglePost('post10')">
+              <span class="post-num">10/16</span>
+              <span class="post-title">Same AI tool, score 8 vs. score 41</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>Two companies. Almost identical AI tools.
+One scored 8/60. The other scored 41/60.
+Here's why — and what it meant for what each one had to do next.
+
+Both organisations had built an AI tool that did, on the surface, the same thing: it analysed incoming customer service requests and routed them to the appropriate team.
+
+Company A — score 8/60 → Transparency
+The AI only routed internal ticket categories, not customer-facing decisions. Human agents reviewed all routings before acting. No personal data was processed — only anonymised ticket content. No Annex III trigger.
+Route: Transparency. An AI disclosure notice and a basic logging process. Two weeks of work.
+
+Company B — score 41/60 → PreCheck
+The AI routed customer service requests that included account decisions — credit limit changes, service suspensions. Routing sometimes triggered automated actions without a human review step. Personal data was processed. Financial services sector flag activated.
+Route: PreCheck. Oversight documentation, Annex III clarification, GDPR processing note, and a routing decision on whether deeper HRAI assessment was needed.
+
+Same surface function. Fundamentally different risk profile.
+
+The score is not a judgment. It's a map. It shows where the risk signals are concentrated — and therefore where the compliance work needs to go.</p></div>
+          </div>
+
+          <div class="post-item" id="post11">
+            <div class="post-header" onclick="togglePost('post11')">
+              <span class="post-num">11/16</span>
+              <span class="post-title">Three companies, three completely different paths</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>A 12-person HR tech startup. A 200-person logistics firm. A 450-person healthcare platform.
+Three AI systems. Three completely different compliance paths.
+
+Tier 1 — Transparency
+Bright Loop, 12-person HR tech startup. Their AI generates personalised onboarding checklists. No personal data beyond role title. Human manager reviews every checklist before it's sent.
+Score: 6/60. Required: AI disclosure in the UI, a brief data processing note, a logging process. Total work: approximately two weeks, manageable internally.
+
+Tier 2 — PreCheck
+Meridian Freight, 200-person logistics company. Their AI recommends delivery route priorities. Human dispatchers review and override routinely. Some driver location data is processed.
+Score: 28/60. Required: structured use-case documentation, human oversight protocol, a GDPR processing review, Annex III pre-screening for the employment dimension.
+
+Tier 3 — HRAI
+CareLink, 450-person digital health platform. Their AI recommends care pathway adjustments for patients with chronic conditions. Clinical staff review recommendations, but the AI output directly influences treatment schedules. Health data is processed.
+Score: 52/60. Required: full high-risk AI system preparation — conformity assessment pathway, quality management system elements, human oversight documentation, risk management system, post-market monitoring plan.
+
+Three routes. Three proportional responses. The routing is not about the technology — it's about what the technology does, to whom, and with what oversight in place.</p></div>
+          </div>
+
+          <div class="post-item" id="post12">
+            <div class="post-header" onclick="togglePost('post12')">
+              <span class="post-num">12/16</span>
+              <span class="post-title">Same 26 pages, three different workflows</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>The CEO made a decision. The project manager assigned tasks. The lawyer found her references.
+Same 26 pages. Same morning.
+
+The CEO opened the executive section. She had twelve minutes before her next call. She read the quick-view summary — three sentences on the routing result, three questions that need a decision, one recommended next step. She approved the pathway and delegated the operational tasks before her call started.
+
+The Head of Compliance opened the operational section. He needed to know what to build. He found an evidence pack with eight specific deliverables — each with a description, a responsible role, a priority level, and an indicative deadline. By the end of the morning, five of the eight tasks had been assigned.
+
+The Legal Adviser opened the appendix. She needed to know what regulatory basis was being applied, where the Annex III pre-screening conclusions came from, and which GDPR articles were in scope. She found the references and had what she needed for the legal file in under thirty minutes.
+
+Same document. Same morning. Three different workflows activated.
+
+This is what "immediately delegable" actually means. Not "thorough enough that someone could figure it out." Built in a way that each stakeholder finds their section, their tasks, and their references without having to translate the whole document first.</p></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- WEEK 4 -->
+      <div class="week-card" id="week4">
+        <div class="week-header" onclick="toggleWeek('week4')">
+          <div>
+            <div class="week-label">Week 4</div>
+            <h3>The Output</h3>
+          </div>
+          <svg class="week-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="week-body">
+
+          <div class="post-item" id="post13">
+            <div class="post-header" onclick="togglePost('post13')">
+              <span class="post-num">13/16</span>
+              <span class="post-title">What to do tomorrow morning</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>Most compliance plans tell you where to end up.
+This one tells you what to do tomorrow morning.
+
+"I always know what needs to be done eventually. Annex III assessment, oversight documentation, DPIA review — I know the list. What I never know is what to do tomorrow morning."
+
+That gap — between knowing the destination and knowing the next step — is where most AI Act compliance programmes stall.
+
+The 7-day implementation plan in every AI Compliance Engine report is designed to close that gap.
+
+Day 1 — Use case definition. Document the intended purpose and actual purpose. Assign owners: Business, IT, Compliance.
+Day 2 — Scope and exclusions. Define the system boundary. First version of the change management approach.
+Day 3 — Automation and human control. Document whether the AI recommends, supports, or acts automatically. Map the human oversight and escalation points.
+Day 4 — Data processing. Map data sources, personal data, access rights. Review logging and retention logic.
+Day 5 — Annex III pre-screening. Review which categories apply, collect the "needs clarification" points.
+Day 6 — GDPR / DPIA trigger check. Review automated decision points, profiling, and special category data.
+Day 7 — Routing decision. Management decision: stay at PreCheck level, or open HRAI / DPIA / legal assessment? Document next steps and assign owners.
+
+By day 3, the conversation changes. By day 7, leadership has something they can approve, redirect, or escalate — not just read.</p></div>
+          </div>
+
+          <div class="post-item" id="post14">
+            <div class="post-header" onclick="togglePost('post14')">
+              <span class="post-num">14/16</span>
+              <span class="post-title">Under €200 and 3 minutes vs. €18,000 and 6 weeks</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>Company A spent €18,000 and six weeks.
+Company B spent under €200 and three minutes.
+Here's what each had at the end.
+
+Company A called a well-regarded compliance consultancy. Six weeks of discovery, assessment, documentation, and review cycles. €18,000 invoice. Deliverable: a 44-page report.
+
+Week 7: the report arrived. The CEO couldn't identify a clear decision. The Head of Product didn't know which tasks were hers. The legal adviser had to write a separate memo to extract what she needed. Nobody knew what to do first.
+
+Company B completed the AI Compliance Engine intake. Twelve questions. Three minutes. Under €200.
+
+Within the hour:
+— A 26-page personalised PDF with the company name, use case, and score
+— An executive section with three decisions and one recommendation
+— An evidence pack with eight tasks, owners, and deadlines
+— A 7-day implementation plan
+— A legal appendix with regulatory references
+
+Week 1: the CEO approved the pathway.
+Week 2: five of eight tasks assigned and in progress.
+Week 3: first evidence items complete.
+
+Same problem. Same risk level. One cost €18,000 and produced a filing. One cost under €200 and produced a project.
+
+I'm not saying consultants aren't valuable — for complex, high-risk, multi-system assessments, they are. But for the majority of AI Act compliance questions that mid-market organisations actually face, the first question is a routing question. Not a six-week engagement.</p></div>
+          </div>
+
+          <div class="post-item" id="post15">
+            <div class="post-header" onclick="togglePost('post15')">
+              <span class="post-num">15/16</span>
+              <span class="post-title">Exactly what's inside a PreCheck report</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>Here's exactly what a PreCheck AI Act compliance report looks like.
+All 26 pages. Nothing held back.
+
+Section 1 — Executive Package (pages 1–11)
+Executive Quick View — one page. The routing result in three sentences, three decisions that need management input, one recommended next step. Readable in under five minutes.
+Score Table — all 12 dimensions with submitted response, score contribution, and signal level.
+Annex III Pre-Screening — which of the eight Annex III areas are potentially in scope, which are not impacted, and where legal clarification is recommended.
+Recommended Next Steps — a prioritised action list (P1, P2, P3) with management-level explanations.
+Management Summary — one page. Why this was a good decision and what this document enables.
+
+Section 2 — Operational Implementation (pages 12–16)
+Evidence Pack — eight to twelve specific deliverables, each with: what to create, the responsible role, priority level, and target deadline.
+7-Day Implementation Plan — daily focus areas with specific tasks and expected deliverables.
+PreCheck Ready State Checklist — ten conditions that define when the use case is in a controlled, decision-ready state.
+
+Section 3 — Legal Background (pages 17–26)
+Glossary — eleven key terms in plain language.
+Legal Toolkit — DPIA quick check, ROPA minimum fields, transparency checklist, automated decision safeguards, AI Act Art. 50 requirements, GDPR/AI intersection note.
+Legal References — EU AI Act Articles 6, 9, 13, 50; Annex III; GDPR Articles 22, 30, 35; EDPB Opinion 28/2024.
+
+That's 26 pages. Transparency-level reports are somewhat shorter. HRAI-level reports have a substantially more detailed operational section. Same structure. Proportional depth.</p></div>
+          </div>
+
+          <div class="post-item" id="post16">
+            <div class="post-header" onclick="togglePost('post16')">
+              <span class="post-num">16/16</span>
+              <span class="post-title">The window is open. Here's what to do with it.</span>
+              <svg class="post-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="post-body"><p>The EU AI Act 2026 deadline is real.
+The market is in the "know they need to act, don't know how" phase.
+This window closes.
+
+Every story in this series — Laura's delayed pilot, Marcus's three-week hold, the €18,000 report nobody could action, Sandra's closed laptop after the enterprise demo — is a version of the same problem.
+
+Organisations know the EU AI Act is real. They know their deadline is 2026. They know they have AI systems in production or approaching production that need some form of compliance attention.
+
+What they don't have is a clear, proportional, affordable starting point.
+
+That starting point is what the AI Compliance Engine is built to provide.
+
+Three minutes to complete the intake. A personalised risk score from 0 to 60. A routing classification — Transparency, PreCheck, or HRAI. A 26-page report — executive decision pack, operational task list, legal reference appendix. Automatically generated. Immediately delegable.
+
+This is the market phase where early clarity compounds. Organisations that establish their AI Act baseline now — before the 2026 enforcement pressure builds — have months to implement proportional responses. Organisations that wait will be doing the same work under pressure, with fewer options.
+
+The window is open. It won't be for much longer.
+
+Not legal advice. Not certification. Not an audit.
+Decision support — the kind that lets AI projects move, keeps governance defensible, and costs a fraction of traditional consulting.</p></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /insights-grid -->
+  </div>
+</section>
+
 <!-- ══════════════════════════════════════════════ EVIDENCE SLIDER -->
 
 </main>
@@ -1751,6 +2316,13 @@
 </script>
 
 <script>
+  function toggleWeek(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+  function togglePost(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+
   function switchLang(lang) {
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.setAttribute('lang', lang);
