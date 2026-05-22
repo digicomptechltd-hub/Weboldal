@@ -21,7 +21,14 @@
       "Bash(gh repo *)",
       "Bash(gh api *)",
       "Bash(mkdir \"/c/Users/rluxu/Desktop/Claude Code/Social Media Project\" && echo \"OK\")",
-      "Bash(curl -s \"https://digicomptechltd-hub.github.io/Weboldal/\")"
+      "Bash(curl -s \"https://digicomptechltd-hub.github.io/Weboldal/\")",
+      "Read(//c/c/Users/rluxu/Desktop/Claude Code/Weboldal Project/**)",
+      "Read(//c/c/Users/rluxu/Desktop/Claude Code/Weboldal Project/Linkedin_Posts/**)",
+      "Bash(unzip -p \"LinkedIn-Ready_Campaign_v2_0.docx\" word/document.xml)",
+      "Bash(sed 's/<[^>]*>//g')",
+      "Bash(grep -oP 'POST \\\\d+/16.*?\\(?=POST \\\\d+/16|$\\)')",
+      "Bash(grep -oP 'POST [5-9]/16.*?\\(?=POST \\\\d+/16|$\\)')",
+      "Bash(python3 -)"
     ],
     "additionalDirectories": [
       "C:\\Users\\rluxu\\Desktop\\Claude Code"
