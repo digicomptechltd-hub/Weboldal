@@ -28,7 +28,10 @@
       "Bash(sed 's/<[^>]*>//g')",
       "Bash(grep -oP 'POST \\\\d+/16.*?\\(?=POST \\\\d+/16|$\\)')",
       "Bash(grep -oP 'POST [5-9]/16.*?\\(?=POST \\\\d+/16|$\\)')",
-      "Bash(python3 -)"
+      "Bash(python3 -)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\rluxu\\Desktop\\Claude Code"
