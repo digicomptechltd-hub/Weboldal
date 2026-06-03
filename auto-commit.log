@@ -308,3 +308,4 @@
 [2026-06-02 21:28:02] OK - push sikeres: Auto-mentes: 2026-06-02 21:28:02
 [2026-06-02 22:28:02] OK - push sikeres: Auto-mentes: 2026-06-02 22:28:02
 [2026-06-03 08:28:02] OK - push sikeres: Auto-mentes: 2026-06-03 08:28:02
+[2026-06-03 09:28:02] HIBA - push sikertelen: fatal: unable to access 'https://github.com/digicomptechltd-hub/Weboldal.git/': Could not resolve host: github.com
