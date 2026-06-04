@@ -31,7 +31,8 @@
       "Bash(python3 -)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "PowerShell(Select-String -Path \"c:\\\\Users\\\\rluxu\\\\Desktop\\\\Claude Code\\\\Weboldal Project\\\\index.html\" -Pattern \"report|Report|Bericht|riport\" -CaseSensitive | Where-Object { $_.LineNumber -lt 1068 -or $_.LineNumber -gt 2235 } | Select-Object LineNumber, Line | Format-Table -Wrap)"
     ],
     "additionalDirectories": [
       "C:\\Users\\rluxu\\Desktop\\Claude Code"
